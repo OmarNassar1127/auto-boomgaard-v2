@@ -35,14 +35,11 @@ export const ServicesOverview = () => {
     },
   ];
 
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
   
   const handleClick = useCallback((index: number) => {
-    if (activeIndex === index) {
-      return; // If the same tab is clicked, don't do anything
-    }
-    
-    setActiveIndex(index);
+    // Toggle the clicked tab - if it's already active, close it
+    setActiveIndex(activeIndex === index ? null : index);
   }, [activeIndex]);
 
   return (
@@ -64,31 +61,41 @@ export const ServicesOverview = () => {
               <button
                 onClick={() => handleClick(index)}
                 className={cn(
-                  "w-full text-left py-4 px-4 flex justify-between items-center transition-all",
-                  activeIndex === index ? "font-semibold" : ""
+                  "w-full text-left py-5 px-4 flex justify-between items-center transition-all duration-300",
+                  activeIndex === index ? "font-semibold text-[#BEAA8A]" : "hover:text-[#BEAA8A]"
                 )}
                 aria-expanded={activeIndex === index}
                 aria-controls={`accordion-content-${service.id}`}
               >
                 <span className="text-lg">{service.title}</span>
-                <span className="text-[#BEAA8A]">
+                <span 
+                  className={cn(
+                    "flex items-center justify-center w-7 h-7 rounded-full transition-all duration-300",
+                    activeIndex === index ? "bg-[#BEAA8A] text-white" : "text-[#BEAA8A] border border-[#BEAA8A]"
+                  )}
+                >
                   {activeIndex === index ? (
-                    <FaMinus />
+                    <FaMinus size={12} />
                   ) : (
-                    <FaPlus />
+                    <FaPlus size={12} />
                   )}
                 </span>
               </button>
               <div
                 id={`accordion-content-${service.id}`}
                 className={cn(
-                  "overflow-hidden transition-all duration-300 ease-in-out",
-                  activeIndex === index ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                  "overflow-hidden transition-all duration-500 ease-in-out",
+                  activeIndex === index ? "max-h-[800px] opacity-100 transform-gpu" : "max-h-0 opacity-0 transform-gpu"
                 )}
                 aria-hidden={activeIndex !== index}
               >
-                <div className="p-4 pb-6">
-                  <p className="text-dark-dark/80">{service.description}</p>
+                <div className="px-4 pb-6">
+                  <div className={cn(
+                    "transform transition-all duration-500 ease-in-out",
+                    activeIndex === index ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+                  )}>
+                    <p className="text-dark-dark/80 leading-relaxed">{service.description}</p>
+                  </div>
                 </div>
               </div>
             </div>
