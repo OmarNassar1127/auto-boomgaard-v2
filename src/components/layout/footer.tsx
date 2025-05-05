@@ -1,14 +1,14 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FaInstagram } from 'react-icons/fa';
-import { Button } from '@/components/ui/button';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { FaInstagram } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="bg-white">
       {/* Main footer content */}
@@ -25,7 +25,7 @@ export const Footer = () => {
                 className="object-contain h-auto max-w-full"
               />
             </Link>
-            
+
             <div className="space-y-1 text-gray-700">
               <p className="font-semibold">Adres</p>
               <Link
@@ -34,7 +34,7 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="block hover:text-[#BEAA8A] transition-standard"
               >
-                Populierenlaan 41
+                Ondernemingsweg 56c
               </Link>
               <Link
                 href="https://www.google.com/maps/dir/Current+Location/Van+Bruggen+Automotive+Populierenlaan+41+1911BK+Uitgeest"
@@ -42,10 +42,10 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="block hover:text-[#BEAA8A] transition-standard"
               >
-                1911BK Uitgeest
+                1422 DZ Uithoorn
               </Link>
             </div>
-            
+
             <div className="space-y-1 text-gray-700">
               <p className="font-semibold">Contactgegevens</p>
               <Link
@@ -61,7 +61,7 @@ export const Footer = () => {
                 info@vanbruggenautomotive.nl
               </Link>
             </div>
-            
+
             <div className="mt-4">
               <Link
                 href="https://www.instagram.com/vanbruggenautomotive/"
@@ -78,10 +78,15 @@ export const Footer = () => {
           <div className="text-gray-700">
             <h3 className="uppercase text-sm font-bold mb-6">Openingstijden</h3>
             <p className="text-sm mb-4">
-              <Link href="tel:+31619201375" className="font-medium">Let op:</Link> <br />
-              <Link href="tel:+31619201375" className="text-gray-700">Wij zijn alleen open op afspraak.</Link>
+              <Link href="tel:+31619201375" className="font-medium">
+                Let op:
+              </Link>{" "}
+              <br />
+              <Link href="tel:+31619201375" className="text-gray-700">
+                Wij zijn alleen open op afspraak.
+              </Link>
             </p>
-            
+
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
               <div>Maandag</div>
               <div>9:30 – 17:30</div>
@@ -105,57 +110,90 @@ export const Footer = () => {
             <h3 className="uppercase text-sm font-bold mb-6">Menu</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/aanbod" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/aanbod"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Aanbod
                 </Link>
               </li>
               <li>
-                <Link href="/over-ons" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/over-ons"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Over ons
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/contact"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/vacatures" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/vacatures"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Vacatures
                 </Link>
               </li>
               <li>
-                <Link href="/diensten" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Diensten
                 </Link>
               </li>
               <li>
-                <Link href="/diensten" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Customizing
                 </Link>
               </li>
               <li>
-                <Link href="/diensten" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Detailing
                 </Link>
               </li>
               <li>
-                <Link href="/diensten" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Leasen
                 </Link>
               </li>
               <li>
-                <Link href="/diensten" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Onderhoud
                 </Link>
               </li>
               <li>
-                <Link href="/diensten" className="hover:text-[#BEAA8A] transition-standard">
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
                   Alarm
                 </Link>
               </li>
@@ -166,7 +204,8 @@ export const Footer = () => {
           <div className="text-gray-700" suppressHydrationWarning>
             <h3 className="uppercase text-sm font-bold mb-6">Nieuwsbrief</h3>
             <p className="text-sm mb-4">
-              Meld je aan voor onze nieuwsbrief en blijf op de hoogte van onze nieuwe voorraad.
+              Meld je aan voor onze nieuwsbrief en blijf op de hoogte van onze
+              nieuwe voorraad.
             </p>
             <form className="space-y-3" suppressHydrationWarning>
               <input
@@ -193,7 +232,18 @@ export const Footer = () => {
       {/* Copyright */}
       <div className="border-t border-gray-200 py-6">
         <div className="container-custom text-gray-600 text-sm flex flex-col md:flex-row justify-between items-center">
-          <p>© Copyright {currentYear} Van Bruggen Automotive | Designed and developed by <a href="https://dominiumlabs.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#BEAA8A] transition-standard">Dominium Labs</a></p>
+          <p>
+            © Copyright {currentYear} Van Bruggen Automotive | Designed and
+            developed by{" "}
+            <a
+              href="https://dominiumlabs.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#BEAA8A] transition-standard"
+            >
+              Dominium Labs
+            </a>
+          </p>
           <p className="mt-2 md:mt-0">Boost your business online.</p>
         </div>
       </div>
