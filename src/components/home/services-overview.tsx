@@ -1,95 +1,107 @@
 "use client";
 
-import type React from 'react';
+import React, { useState, useCallback } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { FaTools, FaCar, FaMoneyBillWave, FaSprayCan, FaShieldAlt } from 'react-icons/fa';
+import { FaPlus, FaMinus } from 'react-icons/fa';
 import { SectionHeader } from '@/components/ui/section-header';
-
-interface ServiceBlockProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  href: string;
-}
-
-const ServiceBlock = ({ icon, title, description, href }: ServiceBlockProps) => (
-  <Link
-    href={href}
-    className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-standard group"
-  >
-    <div className="text-gold group-hover:text-gold-dark mb-4 transition-standard">
-      {icon}
-    </div>
-    <h3 className="text-xl font-semibold mb-3 text-dark-dark">{title}</h3>
-    <p className="text-dark-dark/80 mb-3">{description}</p>
-    <span className="text-gold font-medium group-hover:text-gold-dark transition-standard mt-auto">
-      Meer informatie
-    </span>
-  </Link>
-);
+import { cn } from '@/lib/utils';
 
 export const ServicesOverview = () => {
   const services = [
     {
-      icon: <FaCar size={42} />,
+      id: 'customizing',
       title: 'Customizing',
-      description: 'Maak uw auto uniek met onze customizing services, van sportieve velgen tot verfijnde upgrades.',
-      href: '/diensten',
+      description: 'Bij Van Bruggen Automotive maken wij uw auto uniek, precies zoals u dat wilt. Van opvallende exterieurstyling, zoals speciale velgen of een sportieve bodykit, tot het uitbreiden van opties – alles is mogelijk. Onze experts denken met u mee en zorgen voor technische upgrades en aanpassingen die uw rijervaring compleet maken. Uw droom, onze expertise.',
     },
     {
-      icon: <FaSprayCan size={42} />,
+      id: 'detailing',
       title: 'Detailing',
-      description: 'Laat uw auto stralen als nieuw met onze professionele detailing en poetsservices.',
-      href: '/diensten',
+      description: 'Bij Van Bruggen Automotive zorgen we ervoor dat uw auto altijd er stralend uitziet. Met onze professionele detailing- en poetsservices krijgt uw auto de aandacht die het verdient. Van een grondige reiniging van het interieur tot een perfecte lakverzegeling aan de buitenkant – wij herstellen de glans en uitstraling van uw auto alsof deze net uit de showroom komt. Onze experts gebruiken hoogwaardige producten en technieken om zelfs de kleinste details te perfectioneren.',
     },
     {
-      icon: <FaMoneyBillWave size={42} />,
+      id: 'leasen',
       title: 'Leasen',
-      description: 'Zakelijk of privé leasen met flexibele oplossingen die aansluiten bij uw wensen en budget.',
-      href: '/diensten',
+      description: 'Bij Van Bruggen Automotive maken we het leasen van uw droomauto eenvoudig en zorgeloos. Of u nu kiest voor zakelijk of privélease, wij bieden flexibele oplossingen die perfect aansluiten bij uw wensen en budget. Onze leaseconstructies zijn transparant en bieden u de zekerheid van vaste maandlasten zonder onverwachte kosten. Wij regelen alles voor u, van onderhoud en verzekering tot wegenbelasting, zodat u alleen maar hoeft te genieten van uw rijervaring.',
     },
     {
-      icon: <FaTools size={42} />,
+      id: 'onderhoud',
       title: 'Onderhoud',
-      description: 'Houd uw auto in topconditie met ons vakkundig onderhoud en uitgebreide reparaties.',
-      href: '/diensten',
+      description: 'Bij Van Bruggen Automotive zorgen we ervoor dat uw auto altijd in topconditie blijft. Met onze professionele onderhoudsservices kunt u rekenen op betrouwbaarheid, veiligheid en rijplezier. Onze monteurs gebruiken originele onderdelen om uw auto zorgvuldig te onderhouden. Van periodieke controles en olie verversen tot uitgebreide reparaties. Wij bieden maatwerk en advies afgestemd op de auto en jouw rijstijl.',
     },
     {
-      icon: <FaShieldAlt size={42} />,
+      id: 'alarm',
       title: 'Alarm',
-      description: 'Bescherm uw auto tegen diefstal met onze geavanceerde beveiligingssystemen.',
-      href: '/diensten',
+      description: 'Van Bruggen Automotive biedt op maat gemaakte oplossingen die perfect aansluiten bij uw auto en uw veiligheidseisen. Van gecertificeerde alarmsystemen tot geavanceerde track & trace technologieën – onze experts installeren beveiligingssystemen die je auto beschermen tegen diefstal en inbraak. Je kunt vertrouwen op onze kennis en ervaring voor een snelle en professionele installatie.',
     },
   ];
 
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  
+  const handleClick = useCallback((index: number) => {
+    if (activeIndex === index) {
+      return; // If the same tab is clicked, don't do anything
+    }
+    
+    setActiveIndex(index);
+  }, [activeIndex]);
+
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-gray-50">
       <div className="container-custom">
         <SectionHeader
-          subtitle="Onze diensten"
+          subtitle="ONZE DIENSTEN"
           title="Meer dan alleen verkoop"
           alignment="center"
           className="mb-12"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-3xl mx-auto mb-10">
           {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+            <div
+              key={service.id}
+              className="border-b border-gray-200 last:border-b-0"
             >
-              <ServiceBlock
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                href={service.href}
-              />
-            </motion.div>
+              <button
+                onClick={() => handleClick(index)}
+                className={cn(
+                  "w-full text-left py-4 px-4 flex justify-between items-center transition-all",
+                  activeIndex === index ? "font-semibold" : ""
+                )}
+                aria-expanded={activeIndex === index}
+                aria-controls={`accordion-content-${service.id}`}
+              >
+                <span className="text-lg">{service.title}</span>
+                <span className="text-[#BEAA8A]">
+                  {activeIndex === index ? (
+                    <FaMinus />
+                  ) : (
+                    <FaPlus />
+                  )}
+                </span>
+              </button>
+              <div
+                id={`accordion-content-${service.id}`}
+                className={cn(
+                  "overflow-hidden transition-all duration-300 ease-in-out",
+                  activeIndex === index ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                )}
+                aria-hidden={activeIndex !== index}
+              >
+                <div className="p-4 pb-6">
+                  <p className="text-dark-dark/80">{service.description}</p>
+                </div>
+              </div>
+            </div>
           ))}
+        </div>
+        
+        <div className="flex justify-center mt-10">
+          <Link
+            href="/diensten"
+            className="bg-[#BEAA8A] hover:bg-[#A99979] text-white font-medium py-3 px-6 rounded-sm transition-standard w-full sm:w-auto text-center"
+          >
+            Bekijk alle diensten
+          </Link>
         </div>
       </div>
     </section>
