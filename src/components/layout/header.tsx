@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { FaWhatsapp, FaInstagram, FaBars, FaSearch } from "react-icons/fa";
-import { MdEmail, MdPhone, MdClose } from "react-icons/md";
+import { FaWhatsapp, FaInstagram, FaBars } from "react-icons/fa";
+import { MdEmail, MdPhone } from "react-icons/md";
 import { cn } from "@/lib/utils";
 import {
   Sheet,
@@ -142,9 +142,6 @@ export const Header = () => {
                 </span>
               </span>
             </Link>
-            <button className="text-white hover:text-gold transition-standard ml-4">
-              <FaSearch className="w-5 h-5" />
-            </button>
           </nav>
 
           {/* Mobile menu */}
