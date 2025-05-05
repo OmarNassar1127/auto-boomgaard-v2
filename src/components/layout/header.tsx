@@ -6,7 +6,7 @@ import Image from "next/image";
 import { FaWhatsapp, FaInstagram, FaBars, FaSearch } from "react-icons/fa";
 import { MdEmail, MdPhone, MdClose } from "react-icons/md";
 import { cn } from "@/lib/utils";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 
 const navigation = [
@@ -102,7 +102,8 @@ export const Header = () => {
               alt="Van Bruggen Automotive"
               width={200}
               height={80}
-              className="object-contain"
+              className="object-contain h-auto"
+              style={{ width: 'auto', maxWidth: '100%' }}
               priority
             />
           </Link>
@@ -163,6 +164,8 @@ export const Header = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent className="bg-dark-dark w-full sm:max-w-md">
+                <SheetTitle className="sr-only">Navigatie Menu</SheetTitle>
+                <SheetDescription className="sr-only">Navigatiemenu van Van Bruggen Automotive</SheetDescription>
                 <div className="flex flex-col h-full text-white">
                   <div className="flex justify-between items-center mb-8">
                     <Link href="/" className="relative w-32">
@@ -171,7 +174,8 @@ export const Header = () => {
                         alt="Van Bruggen Automotive"
                         width={150}
                         height={60}
-                        className="object-contain"
+                        className="object-contain h-auto"
+                        style={{ width: 'auto' }}
                       />
                     </Link>
                   </div>
