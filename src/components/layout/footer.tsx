@@ -89,19 +89,19 @@ export const Footer = () => {
 
             <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
               <div>Maandag</div>
-              <div>9:30 – 17:30</div>
+              <div>Op afspraak</div>
               <div>Dinsdag</div>
-              <div>9:30 – 17:30</div>
+              <div>Op afspraak</div>
               <div>Woensdag</div>
-              <div>9:30 – 17:30</div>
+              <div>Op afspraak</div>
               <div>Donderdag</div>
-              <div>9:30 – 17:30</div>
+              <div>Op afspraak</div>
               <div>Vrijdag</div>
-              <div>9:30 – 17:30</div>
+              <div>Op afspraak</div>
               <div>Zaterdag</div>
-              <div>9:30 – 16:00</div>
+              <div>Op afspraak</div>
               <div>Zondag</div>
-              <div>Gesloten</div>
+              <div>Op afspraak</div>
             </div>
           </div>
 

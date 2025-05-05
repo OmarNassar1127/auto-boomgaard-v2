@@ -201,7 +201,7 @@ export default function OverOnsPage() {
                     <div>Zaterdag</div>
                     <div>9:30 - 16:00</div>
                     <div>Zondag</div>
-                    <div>Gesloten</div>
+                    <div>Op afspraak</div>
                   </div>
                 </div>
               </div>

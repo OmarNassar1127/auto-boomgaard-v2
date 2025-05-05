@@ -265,7 +265,7 @@ export default function ContactPage() {
                   <div className="text-dark-dark/80">Zaterdag</div>
                   <div className="text-dark-dark">9:30 - 16:00</div>
                   <div className="text-dark-dark/80">Zondag</div>
-                  <div className="text-dark-dark">Gesloten</div>
+                  <div className="text-dark-dark">Op afspraak</div>
                 </div>
 
                 <p className="mt-4 text-dark-dark/80">
