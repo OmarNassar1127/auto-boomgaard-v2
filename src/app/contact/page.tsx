@@ -267,10 +267,6 @@ export default function ContactPage() {
                   <div className="text-dark-dark/80">Zondag</div>
                   <div className="text-dark-dark">Op afspraak</div>
                 </div>
-
-                <p className="mt-4 text-dark-dark/80">
-                  <strong>Let op:</strong> Wij zijn alleen open op afspraak.
-                </p>
               </div>
 
               <div>

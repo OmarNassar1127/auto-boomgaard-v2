@@ -92,11 +92,6 @@ export const Footer = () => {
             <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">
               Openingstijden
             </h3>
-            <p className="text-sm mb-6">
-              <span className="font-medium">Let op:</span>
-              <br />
-              Wij zijn alleen open op afspraak.
-            </p>
 
             <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
               <div className="font-medium">Maandag</div>
