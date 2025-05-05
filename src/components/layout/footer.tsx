@@ -27,7 +27,7 @@ export const Footer = () => {
             </Link>
 
             <div className="space-y-1 text-gray-700">
-              <p className="font-semibold">Adres</p>
+              <p className="font-semibold text-[#BEAA8A]">Adres</p>
               <Link
                 href="https://www.google.com/maps/dir/Current+Location/Van+Bruggen+Automotive+Populierenlaan+41+1911BK+Uitgeest"
                 target="_blank"
@@ -47,7 +47,7 @@ export const Footer = () => {
             </div>
 
             <div className="space-y-1 text-gray-700">
-              <p className="font-semibold">Contactgegevens</p>
+              <p className="font-semibold text-[#BEAA8A]">Contactgegevens</p>
               <Link
                 href="tel:+31619201375"
                 className="block hover:text-[#BEAA8A] transition-standard"
@@ -76,9 +76,9 @@ export const Footer = () => {
 
           {/* Opening hours */}
           <div className="text-gray-700">
-            <h3 className="uppercase text-sm font-bold mb-6">Openingstijden</h3>
+            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">Openingstijden</h3>
             <p className="text-sm mb-4">
-              <Link href="tel:+31619201375" className="font-medium">
+              <Link href="tel:+31619201375" className="font-medium text-[#BEAA8A]">
                 Let op:
               </Link>{" "}
               <br />
@@ -107,7 +107,7 @@ export const Footer = () => {
 
           {/* Menu */}
           <div className="text-gray-700">
-            <h3 className="uppercase text-sm font-bold mb-6">Menu</h3>
+            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">Menu</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
@@ -202,7 +202,7 @@ export const Footer = () => {
 
           {/* Newsletter */}
           <div className="text-gray-700" suppressHydrationWarning>
-            <h3 className="uppercase text-sm font-bold mb-6">Nieuwsbrief</h3>
+            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">Nieuwsbrief</h3>
             <p className="text-sm mb-4">
               Meld je aan voor onze nieuwsbrief en blijf op de hoogte van onze
               nieuwe voorraad.
