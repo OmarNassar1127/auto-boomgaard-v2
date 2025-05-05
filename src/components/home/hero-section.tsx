@@ -1,0 +1,86 @@
+"use client";
+
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+
+interface HeroSectionProps {
+  className?: string;
+  backgroundImage?: string;
+}
+
+export const HeroSection = ({
+  className,
+  backgroundImage = 'https://ext.same-assets.com/3632404423/2581911691.jpeg',
+}: HeroSectionProps) => {
+  return (
+    <section
+      className={cn(
+        'relative h-screen min-h-[600px] flex items-center justify-center',
+        className
+      )}
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={backgroundImage}
+          alt="Van Bruggen Automotive Hero"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-dark bg-opacity-50" />
+      </div>
+
+      {/* Content */}
+      <div className="container-custom relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Dé Audi specialist van Nederland
+          </h1>
+
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <Button asChild className="bg-gold hover:bg-gold-dark text-white px-8 py-6 rounded text-lg">
+              <Link href="/aanbod">
+                Bekijk collectie
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 rounded text-lg">
+              <Link href="/contact">
+                Afspraak maken
+              </Link>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Trustpilot rating */}
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center">
+        <div className="bg-white/10 backdrop-blur-sm py-2 px-4 rounded-full flex items-center text-white">
+          <div className="flex mr-2">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <svg
+                key={`hero-star-${star}`}
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 text-gold"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          <span className="text-sm">4.5/5 op basis van 248 reviews</span>
+        </div>
+      </div>
+    </section>
+  );
+};
