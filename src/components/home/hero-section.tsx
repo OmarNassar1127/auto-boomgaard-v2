@@ -47,17 +47,28 @@ export const HeroSection = ({
             Dé Audi specialist van Nederland
           </h1>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Button asChild className="bg-gold hover:bg-gold-dark text-white px-8 py-6 rounded text-lg">
-              <Link href="/aanbod">
-                Bekijk collectie
+          <div className="flex flex-col md:flex-row justify-center gap-4 mt-8 w-full px-4 md:px-0">
+            {/* Custom button styling to match design images */}
+            <div className="w-full md:w-[220px]">
+              <Link 
+                href="/aanbod" 
+                className="elementor-button block w-full md:w-full bg-gold hover:bg-transparent hover:text-white text-white rounded-sm border-2 border-gold transition-standard py-2 px-6 text-center"
+              >
+                <span className="elementor-button-content-wrapper">
+                  <span className="elementor-button-text font-medium">Bekijk collectie</span>
+                </span>
               </Link>
-            </Button>
-            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 rounded text-lg">
-              <Link href="/contact">
-                Afspraak maken
+            </div>
+            <div className="w-full md:w-[220px]">
+              <Link 
+                href="/contact" 
+                className="elementor-button block w-full md:w-full border-2 border-white bg-transparent hover:bg-white hover:text-gold text-white rounded-sm transition-standard py-2 px-6 text-center"
+              >
+                <span className="elementor-button-content-wrapper">
+                  <span className="elementor-button-text font-medium">Afspraak maken</span>
+                </span>
               </Link>
-            </Button>
+            </div>
           </div>
         </motion.div>
       </div>
