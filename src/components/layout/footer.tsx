@@ -3,61 +3,74 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaInstagram } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
+import {
+  FaInstagram,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaArrowUp,
+} from "react-icons/fa";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <footer className="bg-white">
       {/* Main footer content */}
       <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Logo and contact info section */}
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16">
+          {/* Column 1: Logo and contact info section */}
+          <div className="space-y-6">
             <Link href="/" className="inline-block mb-4">
               <Image
                 src="https://vanbruggenautomotive.nl/wp-content/uploads/2024/11/Logo-ZwartGoud-e1731420381483-1024x472.png"
                 alt="Auto Boomgaard"
                 width={300}
                 height={138}
-                className="object-contain h-auto max-w-full"
+                className="object-contain h-auto max-w-[30%] md:max-w-[70%]"
               />
             </Link>
 
             <div className="space-y-1 text-gray-700">
-              <p className="font-semibold text-[#BEAA8A]">Adres</p>
+              <h3 className="text-[#BEAA8A] font-semibold text-base">Adres</h3>
               <Link
                 href="https://www.google.com/maps/dir/Current+Location/Van+Bruggen+Automotive+Populierenlaan+41+1911BK+Uitgeest"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block hover:text-[#BEAA8A] transition-standard"
+                className="block hover:text-[#BEAA8A] transition-standard flex items-start"
               >
-                Ondernemingsweg 56c
-              </Link>
-              <Link
-                href="https://www.google.com/maps/dir/Current+Location/Van+Bruggen+Automotive+Populierenlaan+41+1911BK+Uitgeest"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block hover:text-[#BEAA8A] transition-standard"
-              >
-                1422 DZ Uithoorn
+                <FaMapMarkerAlt className="mr-2 mt-1 text-[#BEAA8A] flex-shrink-0" />
+                <span>
+                  Populierenlaan 41
+                  <br />
+                  1911BK Uitgeest
+                </span>
               </Link>
             </div>
 
-            <div className="space-y-1 text-gray-700">
-              <p className="font-semibold text-[#BEAA8A]">Contactgegevens</p>
+            <div className="space-y-3 text-gray-700">
+              <h3 className="text-[#BEAA8A] font-semibold text-base">
+                Contactgegevens
+              </h3>
               <Link
                 href="tel:+31619201375"
-                className="block hover:text-[#BEAA8A] transition-standard"
+                className="block hover:text-[#BEAA8A] transition-standard flex items-center"
               >
+                <FaPhoneAlt className="mr-2 text-[#BEAA8A] flex-shrink-0" />
                 +31 6 19 20 13 75
               </Link>
               <Link
                 href="mailto:info@vanbruggenautomotive.nl"
-                className="block hover:text-[#BEAA8A] transition-standard"
+                className="block hover:text-[#BEAA8A] transition-standard flex items-center"
               >
+                <FaEnvelope className="mr-2 text-[#BEAA8A] flex-shrink-0" />
                 info@vanbruggenautomotive.nl
               </Link>
             </div>
@@ -74,41 +87,41 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Opening hours */}
+          {/* Column 2: Opening hours */}
           <div className="text-gray-700">
-            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">Openingstijden</h3>
-            <p className="text-sm mb-4">
-              <Link href="tel:+31619201375" className="font-medium text-[#BEAA8A]">
-                Let op:
-              </Link>{" "}
+            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">
+              Openingstijden
+            </h3>
+            <p className="text-sm mb-6">
+              <span className="font-medium">Let op:</span>
               <br />
-              <Link href="tel:+31619201375" className="text-gray-700">
-                Wij zijn alleen open op afspraak.
-              </Link>
+              Wij zijn alleen open op afspraak.
             </p>
 
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
-              <div>Maandag</div>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+              <div className="font-medium">Maandag</div>
               <div>Op afspraak</div>
-              <div>Dinsdag</div>
+              <div className="font-medium">Dinsdag</div>
               <div>Op afspraak</div>
-              <div>Woensdag</div>
+              <div className="font-medium">Woensdag</div>
               <div>Op afspraak</div>
-              <div>Donderdag</div>
+              <div className="font-medium">Donderdag</div>
               <div>Op afspraak</div>
-              <div>Vrijdag</div>
+              <div className="font-medium">Vrijdag</div>
               <div>Op afspraak</div>
-              <div>Zaterdag</div>
+              <div className="font-medium">Zaterdag</div>
               <div>Op afspraak</div>
-              <div>Zondag</div>
+              <div className="font-medium">Zondag</div>
               <div>Op afspraak</div>
             </div>
           </div>
 
-          {/* Menu */}
+          {/* Column 3: Menu */}
           <div className="text-gray-700">
-            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">Menu</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">
+              Menu
+            </h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-sm">
               <li>
                 <Link
                   href="/"
@@ -198,35 +211,28 @@ export const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
 
-          {/* Newsletter */}
-          <div className="text-gray-700" suppressHydrationWarning>
-            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">Nieuwsbrief</h3>
-            <p className="text-sm mb-4">
-              Meld je aan voor onze nieuwsbrief en blijf op de hoogte van onze
-              nieuwe voorraad.
-            </p>
-            <form className="space-y-3" suppressHydrationWarning>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                className="w-full py-3 px-4 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#BEAA8A] focus:border-transparent bg-white"
-                required
-                suppressHydrationWarning
-              />
-              <button
-                type="submit"
-                className="elementor-button elementor-size-md w-full bg-[#BEAA8A] hover:bg-opacity-80 text-white font-medium py-3 px-4 transition-standard"
-              >
-                <span className="elementor-button-content-wrapper">
-                  <span className="elementor-button-text">Aanmelden</span>
-                </span>
-              </button>
-            </form>
+            {/* Back to top button for desktop */}
+            <button
+              onClick={scrollToTop}
+              className="mt-8 hidden md:flex items-center text-[#BEAA8A] hover:text-gray-700 transition-standard"
+            >
+              <FaArrowUp className="mr-2" />
+              Terug naar boven
+            </button>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Back to Top Button */}
+      <div className="container-custom py-4 md:hidden">
+        <button
+          onClick={scrollToTop}
+          className="flex items-center mx-auto text-[#BEAA8A] hover:text-gray-700 transition-standard"
+        >
+          <FaArrowUp className="mr-2" />
+          Terug naar boven
+        </button>
       </div>
 
       {/* Copyright */}
@@ -240,7 +246,7 @@ export const Footer = () => {
               rel="noopener noreferrer"
               className="hover:text-[#BEAA8A] transition-standard"
             >
-              Dominium Labs
+              Dominum labs
             </a>
           </p>
           <p className="mt-2 md:mt-0">Boost your business online.</p>
