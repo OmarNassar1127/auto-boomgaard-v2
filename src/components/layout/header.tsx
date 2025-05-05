@@ -153,8 +153,8 @@ export const Header = () => {
                   className={cn(
                     "focus:outline-none transition-smooth",
                     scrolled
-                      ? "text-white hover:text-white"
-                      : "text-white hover:text-gold"
+                      ? "text-white"
+                      : "text-white"
                   )}
                 >
                   <FaBars className="w-6 h-6" />
