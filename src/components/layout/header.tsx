@@ -121,7 +121,7 @@ export const Header = () => {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-white hover:text-white hover:font-semibold transition-standard font-medium relative px-1 py-2 group"
+                    className="text-white hover:text-white transition-standard font-medium relative px-1 py-2 group"
                   >
                     {item.name}
                     <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -137,7 +137,9 @@ export const Header = () => {
               className="elementor-button block md:w-auto border-2 border-white bg-transparent hover:bg-white hover:text-[#BEAA8A] text-white rounded-sm transition-standard py-2 px-5 ml-2"
             >
               <span className="elementor-button-content-wrapper">
-                <span className="elementor-button-text font-medium">Contact opnemen</span>
+                <span className="elementor-button-text font-medium">
+                  Contact opnemen
+                </span>
               </span>
             </Link>
             <button className="text-white hover:text-gold transition-standard ml-4">
@@ -184,7 +186,7 @@ export const Header = () => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className={`py-2 border-b border-gray-700 hover:text-white hover:font-semibold transition-smooth relative group ${
+                        className={`py-2 border-b border-gray-700 hover:text-white transition-smooth relative group ${
                           pathname === item.href ? "font-semibold" : ""
                         }`}
                       >
