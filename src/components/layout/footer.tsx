@@ -244,7 +244,6 @@ export const Footer = () => {
               Dominum labs
             </a>
           </p>
-          <p className="mt-2 md:mt-0">Boost your business online.</p>
         </div>
       </div>
     </footer>

@@ -134,10 +134,10 @@ export const Header = () => {
             </ul>
             <Link
               href="/contact"
-              className="elementor-button elementor-size-sm bg-[#c1b497] text-white hover:bg-[#d2c5a8] transition-standard rounded-sm py-2 px-5 ml-2"
+              className="elementor-button block md:w-auto border-2 border-white bg-transparent hover:bg-white hover:text-[#BEAA8A] text-white rounded-sm transition-standard py-2 px-5 ml-2"
             >
               <span className="elementor-button-content-wrapper">
-                <span className="elementor-button-text">Contact opnemen</span>
+                <span className="elementor-button-text font-medium">Contact opnemen</span>
               </span>
             </Link>
             <button className="text-white hover:text-gold transition-standard ml-4">
@@ -196,10 +196,10 @@ export const Header = () => {
                     ))}
                     <Link
                       href="/contact"
-                      className="mt-4 bg-[#c1b497] text-white py-3 px-6 rounded-sm text-center hover:bg-[#d2c5a8] transition-smooth"
+                      className="mt-4 border-2 border-white bg-transparent hover:bg-white hover:text-[#BEAA8A] text-white rounded-sm py-3 px-6 text-center transition-smooth"
                     >
                       <span className="elementor-button-content-wrapper">
-                        <span className="elementor-button-text">
+                        <span className="elementor-button-text font-medium">
                           Contact opnemen
                         </span>
                       </span>
