@@ -94,7 +94,7 @@ export const Header = () => {
       {/* Main navigation */}
       <div
         className={cn(
-          "transition-smooth py-4",
+          "transition-smooth py-3 md:py-4",
           scrolled ? "bg-[#BEAA8A] shadow-lg" : "bg-transparent"
         )}
         style={{
@@ -102,7 +102,7 @@ export const Header = () => {
         }}
       >
         <div className="container-custom flex justify-between items-center">
-          <Link href="/" className="relative w-32 md:w-40">
+          <Link href="/" className="relative w-28 sm:w-32 md:w-40">
             <Image
               src="https://ext.same-assets.com/3632404423/2187716925.png"
               alt="Auto Boomgaard"
@@ -115,13 +115,13 @@ export const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center">
-            <ul className="flex space-x-6 mr-4">
+          <nav className="hidden md:flex items-center lg:ml-10">
+            <ul className="flex md:space-x-4 lg:space-x-6 xl:space-x-8 mr-2 lg:mr-4">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-white hover:text-white transition-standard font-medium relative px-1 py-2 group"
+                    className="text-white hover:text-white transition-standard font-medium relative px-1 py-2 group text-sm lg:text-base"
                   >
                     {item.name}
                     <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -134,7 +134,7 @@ export const Header = () => {
             </ul>
             <Link
               href="/contact"
-              className="elementor-button block md:w-auto border-2 border-white bg-transparent hover:bg-white hover:text-[#BEAA8A] text-white rounded-sm transition-standard py-2 px-5 ml-2"
+              className="elementor-button block md:w-auto border-2 border-white bg-transparent hover:bg-white hover:text-[#BEAA8A] text-white rounded-sm transition-standard py-2 md:px-4 lg:px-5 ml-2 whitespace-nowrap text-sm lg:text-base"
             >
               <span className="elementor-button-content-wrapper">
                 <span className="elementor-button-text font-medium">
@@ -145,19 +145,20 @@ export const Header = () => {
           </nav>
 
           {/* Mobile menu */}
-          <div className="flex md:hidden items-center space-x-4">
+          <div className="flex md:hidden items-center">
             <Sheet>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
+                  size="sm"
                   className={cn(
-                    "focus:outline-none transition-smooth",
+                    "focus:outline-none transition-smooth p-1 sm:p-2",
                     scrolled
                       ? "text-white"
                       : "text-white"
                   )}
                 >
-                  <FaBars className="w-6 h-6" />
+                  <FaBars className="w-5 h-5 sm:w-6 sm:h-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent className="bg-white w-[80%] sm:max-w-md">
