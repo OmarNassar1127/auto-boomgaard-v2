@@ -34,161 +34,192 @@ export const Header = () => {
     };
   }, [scrolled]);
 
+  const goldColor = "#BEAA8A";
+
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-dark bg-opacity-95 backdrop-blur-sm shadow-lg py-2"
-          : "bg-transparent py-4"
-      )}
-    >
-      {/* Top bar */}
-      <div className="container-custom flex justify-between items-center text-white text-sm mb-2">
-        <div className="flex items-center space-x-4">
-          <Link
-            href="mailto:info@vanbruggenautomotive.nl"
-            className="flex items-center hover:text-gold transition-standard"
-          >
-            <MdEmail className="mr-1" />
-            <span className="hidden md:block">
-              info@vanbruggenautomotive.nl
-            </span>
-          </Link>
-          <Link
-            href="tel:+31619201375"
-            className="flex items-center hover:text-gold transition-standard"
-          >
-            <MdPhone className="mr-1" />
-            <span className="hidden md:block">+31 6 19 20 13 75</span>
-          </Link>
-          <Link
-            href="https://api.whatsapp.com/send/?phone=31613024070"
-            className="flex items-center hover:text-gold transition-standard"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaWhatsapp className="mr-1" />
-            <span className="hidden md:block">Whatsapp</span>
-          </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      {/* Top bar - Only visible when not scrolled */}
+      <div 
+        className={cn(
+          "bg-[#BEAA8A] transition-all duration-300 overflow-hidden",
+          scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
+        )}
+      >
+        <div className="container-custom flex justify-between items-center text-white text-sm py-2">
+          <div className="flex items-center space-x-4">
+            <Link
+              href="mailto:info@vanbruggenautomotive.nl"
+              className="flex items-center hover:text-dark transition-standard"
+            >
+              <MdEmail className="mr-1" />
+              <span className="hidden md:block">
+                info@vanbruggenautomotive.nl
+              </span>
+            </Link>
+            <Link
+              href="tel:+31619201375"
+              className="flex items-center hover:text-dark transition-standard"
+            >
+              <MdPhone className="mr-1" />
+              <span className="hidden md:block">+31 6 19 20 13 75</span>
+            </Link>
+            <Link
+              href="https://api.whatsapp.com/send/?phone=31613024070"
+              className="flex items-center hover:text-dark transition-standard"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaWhatsapp className="mr-1" />
+              <span className="hidden md:block">Whatsapp</span>
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* Main navigation */}
-      <div className="container-custom flex justify-between items-center">
-        <Link href="/" className="relative w-32 md:w-40">
-          <Image
-            src="https://ext.same-assets.com/3632404423/2187716925.png"
-            alt="Van Bruggen Automotive"
-            width={200}
-            height={80}
-            className="object-contain"
-            priority
-          />
-        </Link>
+      <div 
+        className={cn(
+          "transition-all duration-300 py-4",
+          scrolled 
+            ? "bg-[#BEAA8A] shadow-lg" 
+            : "bg-transparent"
+        )}
+      >
+        <div className="container-custom flex justify-between items-center">
+          <Link href="/" className="relative w-32 md:w-40">
+            <Image
+              src="https://ext.same-assets.com/3632404423/2187716925.png"
+              alt="Van Bruggen Automotive"
+              width={200}
+              height={80}
+              className="object-contain"
+              priority
+            />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-white hover:text-gold transition-standard font-medium"
-            >
-              {item.name}
-            </Link>
-          ))}
-          <div className="flex items-center space-x-4">
-            <Link
-              href="/contact"
-              className="bg-gold text-white py-2 px-4 rounded hover:bg-gold-dark transition-standard flex items-center"
-            >
-              Contact opnemen
-            </Link>
-            <button className="text-white hover:text-gold transition-standard">
-              <FaSearch className="w-5 h-5" />
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile menu */}
-        <div className="flex md:hidden items-center space-x-4">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                className="text-white hover:text-gold focus:outline-none"
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "transition-standard font-medium",
+                  scrolled 
+                    ? "text-dark hover:text-white" 
+                    : "text-white hover:text-gold"
+                )}
               >
-                <FaBars className="w-6 h-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent className="bg-dark-dark w-full sm:max-w-md">
-              <div className="flex flex-col h-full text-white">
-                <div className="flex justify-between items-center mb-8">
-                  <Link href="/" className="relative w-32">
-                    <Image
-                      src="https://ext.same-assets.com/3632404423/2187716925.png"
-                      alt="Van Bruggen Automotive"
-                      width={150}
-                      height={60}
-                      className="object-contain"
-                    />
-                  </Link>
-                </div>
-                <nav className="flex flex-col space-y-6 text-lg">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="py-2 border-b border-gray-700 hover:text-gold transition-standard"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                  <Link
-                    href="/contact"
-                    className="mt-4 bg-gold text-white py-3 px-6 rounded text-center hover:bg-gold-dark transition-standard"
-                  >
-                    Contact opnemen
-                  </Link>
-                </nav>
-                <div className="mt-auto">
-                  <div className="flex items-center space-x-6 mb-4">
-                    <Link
-                      href="https://www.instagram.com/vanbruggenautomotive/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-gold transition-standard"
-                    >
-                      <FaInstagram className="w-5 h-5" />
-                    </Link>
-                    <Link
-                      href="https://api.whatsapp.com/send/?phone=31613024070"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-gold transition-standard"
-                    >
-                      <FaWhatsapp className="w-5 h-5" />
-                    </Link>
-                  </div>
-                  <div className="flex flex-col space-y-2 text-sm text-gray-300">
-                    <Link
-                      href="mailto:info@vanbruggenautomotive.nl"
-                      className="hover:text-gold transition-standard"
-                    >
-                      info@vanbruggenautomotive.nl
-                    </Link>
-                    <Link
-                      href="tel:+31619201375"
-                      className="hover:text-gold transition-standard"
-                    >
-                      +31 6 19 20 13 75
+                {item.name}
+              </Link>
+            ))}
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/contact"
+                className={cn(
+                  "py-2 px-4 rounded transition-standard flex items-center",
+                  scrolled
+                    ? "bg-dark text-white hover:bg-dark-light"
+                    : "bg-gold text-white hover:bg-gold-dark"
+                )}
+              >
+                Contact opnemen
+              </Link>
+              <button className={cn(
+                "transition-standard",
+                scrolled 
+                  ? "text-dark hover:text-white" 
+                  : "text-white hover:text-gold"
+              )}>
+                <FaSearch className="w-5 h-5" />
+              </button>
+            </div>
+          </nav>
+
+          {/* Mobile menu */}
+          <div className="flex md:hidden items-center space-x-4">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className={cn(
+                    "focus:outline-none",
+                    scrolled 
+                      ? "text-dark hover:text-white" 
+                      : "text-white hover:text-gold"
+                  )}
+                >
+                  <FaBars className="w-6 h-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="bg-dark-dark w-full sm:max-w-md">
+                <div className="flex flex-col h-full text-white">
+                  <div className="flex justify-between items-center mb-8">
+                    <Link href="/" className="relative w-32">
+                      <Image
+                        src="https://ext.same-assets.com/3632404423/2187716925.png"
+                        alt="Van Bruggen Automotive"
+                        width={150}
+                        height={60}
+                        className="object-contain"
+                      />
                     </Link>
                   </div>
+                  <nav className="flex flex-col space-y-6 text-lg">
+                    {navigation.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="py-2 border-b border-gray-700 hover:text-gold transition-standard"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                    <Link
+                      href="/contact"
+                      className="mt-4 bg-gold text-white py-3 px-6 rounded text-center hover:bg-gold-dark transition-standard"
+                    >
+                      Contact opnemen
+                    </Link>
+                  </nav>
+                  <div className="mt-auto">
+                    <div className="flex items-center space-x-6 mb-4">
+                      <Link
+                        href="https://www.instagram.com/vanbruggenautomotive/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-gold transition-standard"
+                      >
+                        <FaInstagram className="w-5 h-5" />
+                      </Link>
+                      <Link
+                        href="https://api.whatsapp.com/send/?phone=31613024070"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-gold transition-standard"
+                      >
+                        <FaWhatsapp className="w-5 h-5" />
+                      </Link>
+                    </div>
+                    <div className="flex flex-col space-y-2 text-sm text-gray-300">
+                      <Link
+                        href="mailto:info@vanbruggenautomotive.nl"
+                        className="hover:text-gold transition-standard"
+                      >
+                        info@vanbruggenautomotive.nl
+                      </Link>
+                      <Link
+                        href="tel:+31619201375"
+                        className="hover:text-gold transition-standard"
+                      >
+                        +31 6 19 20 13 75
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
