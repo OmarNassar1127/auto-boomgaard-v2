@@ -1,162 +1,249 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FaInstagram } from 'react-icons/fa';
-import { Button } from '@/components/ui/button';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  FaInstagram,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaArrowUp,
+} from "react-icons/fa";
 
 export const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <footer className="bg-gold bg-opacity-20 pt-16 pb-6">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mb-12">
-          {/* Logo and address section */}
-          <div className="space-y-4">
+    <footer className="bg-white">
+      {/* Main footer content */}
+      <div className="container-custom py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16">
+          {/* Column 1: Logo and contact info section */}
+          <div className="space-y-6">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="https://ext.same-assets.com/611734785/2402225909.png"
-                alt="Van Bruggen Automotive"
-                width={180}
-                height={72}
-                className="object-contain"
+                src="https://vanbruggenautomotive.nl/wp-content/uploads/2024/11/Logo-ZwartGoud-e1731420381483-1024x472.png"
+                alt="Auto Boomgaard"
+                width={300}
+                height={138}
+                className="object-contain h-auto max-w-[30%] md:max-w-[70%]"
               />
             </Link>
-            <div className="text-dark-dark space-y-1">
-              <h3 className="font-semibold text-lg mb-2">Adres</h3>
+
+            <div className="space-y-1 text-gray-700">
+              <h3 className="text-[#BEAA8A] font-semibold text-base">Adres</h3>
               <Link
                 href="https://www.google.com/maps/dir/Current+Location/Van+Bruggen+Automotive+Populierenlaan+41+1911BK+Uitgeest"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block hover:text-gold-dark transition-standard"
+                className="block hover:text-[#BEAA8A] transition-standard flex items-start"
               >
-                Populierenlaan 41
-              </Link>
-              <Link
-                href="https://www.google.com/maps/dir/Current+Location/Van+Bruggen+Automotive+Populierenlaan+41+1911BK+Uitgeest"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block hover:text-gold-dark transition-standard"
-              >
-                1911BK Uitgeest
+                <FaMapMarkerAlt className="mr-2 mt-1 text-[#BEAA8A] flex-shrink-0" />
+                <span>
+                  Populierenlaan 41
+                  <br />
+                  1911BK Uitgeest
+                </span>
               </Link>
             </div>
-            <div className="text-dark-dark space-y-1">
-              <h3 className="font-semibold text-lg mb-2">Contactgegevens</h3>
+
+            <div className="space-y-3 text-gray-700">
+              <h3 className="text-[#BEAA8A] font-semibold text-base">
+                Contactgegevens
+              </h3>
               <Link
                 href="tel:+31619201375"
-                className="block hover:text-gold-dark transition-standard"
+                className="block hover:text-[#BEAA8A] transition-standard flex items-center"
               >
+                <FaPhoneAlt className="mr-2 text-[#BEAA8A] flex-shrink-0" />
                 +31 6 19 20 13 75
               </Link>
               <Link
                 href="mailto:info@vanbruggenautomotive.nl"
-                className="block hover:text-gold-dark transition-standard"
+                className="block hover:text-[#BEAA8A] transition-standard flex items-center"
               >
+                <FaEnvelope className="mr-2 text-[#BEAA8A] flex-shrink-0" />
                 info@vanbruggenautomotive.nl
               </Link>
             </div>
-            <Link
-              href="https://www.instagram.com/vanbruggenautomotive/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block text-dark-dark hover:text-gold-dark transition-standard"
-            >
-              <FaInstagram className="w-6 h-6" />
-            </Link>
-          </div>
 
-          {/* Opening hours */}
-          <div className="text-dark-dark">
-            <h3 className="uppercase text-sm font-semibold mb-6">Openingstijden</h3>
-            <p className="text-sm mb-4">
-              <Link href="tel:+31619201375" className="font-medium">Let op:</Link> <Link href="tel:+31619201375" className="text-dark-dark">Wij zijn alleen open op afspraak.</Link>
-            </p>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
-              <div>Maandag</div>
-              <div>9:30 - 17:30</div>
-              <div>Dinsdag</div>
-              <div>9:30 - 17:30</div>
-              <div>Woensdag</div>
-              <div>9:30 - 17:30</div>
-              <div>Donderdag</div>
-              <div>9:30 - 17:30</div>
-              <div>Vrijdag</div>
-              <div>9:30 - 17:30</div>
-              <div>Zaterdag</div>
-              <div>9:30 - 16:00</div>
-              <div>Zondag</div>
-              <div>Gesloten</div>
+            <div className="mt-4">
+              <Link
+                href="https://www.instagram.com/vanbruggenautomotive/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#BEAA8A] text-white hover:bg-opacity-80 transition-standard"
+              >
+                <FaInstagram className="w-5 h-5" />
+              </Link>
             </div>
           </div>
 
-          {/* Menu */}
-          <div className="text-dark-dark">
-            <h3 className="uppercase text-sm font-semibold mb-6">Menu</h3>
-            <nav className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-              <Link href="/" className="hover:text-gold-dark transition-standard">
-                Home
-              </Link>
-              <Link href="/aanbod" className="hover:text-gold-dark transition-standard">
-                Aanbod
-              </Link>
-              <Link href="/over-ons" className="hover:text-gold-dark transition-standard">
-                Over ons
-              </Link>
-              <Link href="/contact" className="hover:text-gold-dark transition-standard">
-                Contact
-              </Link>
-              <Link href="/vacatures" className="hover:text-gold-dark transition-standard">
-                Vacatures
-              </Link>
-              <Link href="/diensten" className="hover:text-gold-dark transition-standard">
-                Diensten
-              </Link>
-              <Link href="/diensten" className="hover:text-gold-dark transition-standard">
-                Customizing
-              </Link>
-              <Link href="/diensten" className="hover:text-gold-dark transition-standard">
-                Detailing
-              </Link>
-              <Link href="/diensten" className="hover:text-gold-dark transition-standard">
-                Leasen
-              </Link>
-              <Link href="/diensten" className="hover:text-gold-dark transition-standard">
-                Onderhoud
-              </Link>
-              <Link href="/diensten" className="hover:text-gold-dark transition-standard">
-                Alarm
-              </Link>
-            </nav>
+          {/* Column 2: Opening hours */}
+          <div className="text-gray-700">
+            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">
+              Openingstijden
+            </h3>
+
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+              <div className="font-medium">Maandag</div>
+              <div>Op afspraak</div>
+              <div className="font-medium">Dinsdag</div>
+              <div>Op afspraak</div>
+              <div className="font-medium">Woensdag</div>
+              <div>Op afspraak</div>
+              <div className="font-medium">Donderdag</div>
+              <div>Op afspraak</div>
+              <div className="font-medium">Vrijdag</div>
+              <div>Op afspraak</div>
+              <div className="font-medium">Zaterdag</div>
+              <div>Op afspraak</div>
+              <div className="font-medium">Zondag</div>
+              <div>Op afspraak</div>
+            </div>
           </div>
 
-          {/* Newsletter */}
-          <div className="text-dark-dark">
-            <h3 className="uppercase text-sm font-semibold mb-6">Nieuwsbrief</h3>
-            <p className="text-sm mb-4">
-              Meld je aan voor onze nieuwsbrief en blijf op de hoogte van onze nieuwe voorraad.
-            </p>
-            <form className="space-y-3">
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
-                required
-              />
-              <Button
-                type="submit"
-                className="w-full bg-gold hover:bg-gold-dark text-white font-medium py-2 px-4 rounded transition-standard"
-              >
-                Aanmelden
-              </Button>
-            </form>
+          {/* Column 3: Menu */}
+          <div className="text-gray-700">
+            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">
+              Menu
+            </h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/aanbod"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Aanbod
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/over-ons"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Over ons
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/vacatures"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Vacatures
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Diensten
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Customizing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Detailing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Leasen
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Onderhoud
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/diensten"
+                  className="hover:text-[#BEAA8A] transition-standard"
+                >
+                  Alarm
+                </Link>
+              </li>
+            </ul>
+
+            {/* Back to top button for desktop */}
+            <button
+              onClick={scrollToTop}
+              className="mt-8 hidden md:flex items-center text-[#BEAA8A] hover:text-gray-700 transition-standard"
+            >
+              <FaArrowUp className="mr-2" />
+              Terug naar boven
+            </button>
           </div>
         </div>
+      </div>
 
-        {/* Copyright */}
-        <div className="pt-6 mt-10 border-t border-gray-300 text-dark-dark/70 text-sm flex flex-col md:flex-row justify-between items-center">
-          <p>© Copyright 2025 Van Bruggen Automotive | Designed and developed by <a href="https://fortuneagency.nl/vorige-website-interessant/" target="_blank" rel="noopener noreferrer" className="hover:text-gold-dark transition-standard">Fortune Agency</a></p>
-          <p className="mt-2 md:mt-0">Boost your business online.</p>
+      {/* Mobile Back to Top Button */}
+      <div className="container-custom py-4 md:hidden">
+        <button
+          onClick={scrollToTop}
+          className="flex items-center mx-auto text-[#BEAA8A] hover:text-gray-700 transition-standard"
+        >
+          <FaArrowUp className="mr-2" />
+          Terug naar boven
+        </button>
+      </div>
+
+      {/* Copyright */}
+      <div className="border-t border-gray-200 py-6">
+        <div className="container-custom text-gray-600 text-sm flex flex-col md:flex-row justify-between items-center">
+          <p>
+            © Copyright {currentYear} Auto Boomgaard | Designed and developed by{" "}
+            <a
+              href="https://dominiumlabs.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#BEAA8A] transition-standard"
+            >
+              Dominum labs
+            </a>
+          </p>
         </div>
       </div>
     </footer>

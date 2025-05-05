@@ -1,11 +1,11 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface HeroSectionProps {
   className?: string;
@@ -14,12 +14,12 @@ interface HeroSectionProps {
 
 export const HeroSection = ({
   className,
-  backgroundImage = 'https://ext.same-assets.com/3632404423/2581911691.jpeg',
+  backgroundImage = "https://ext.same-assets.com/3632404423/2581911691.jpeg",
 }: HeroSectionProps) => {
   return (
     <section
       className={cn(
-        'relative h-screen min-h-[600px] flex items-center justify-center',
+        "relative h-screen min-h-[600px] flex items-center justify-center",
         className
       )}
     >
@@ -27,7 +27,7 @@ export const HeroSection = ({
       <div className="absolute inset-0 z-0">
         <Image
           src={backgroundImage}
-          alt="Van Bruggen Automotive Hero"
+          alt="Auto Boomgaard Hero"
           fill
           priority
           className="object-cover"
@@ -47,17 +47,32 @@ export const HeroSection = ({
             Dé Audi specialist van Nederland
           </h1>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Button asChild className="bg-gold hover:bg-gold-dark text-white px-8 py-6 rounded text-lg">
-              <Link href="/aanbod">
-                Bekijk collectie
+          <div className="flex flex-col md:flex-row justify-center gap-4 mt-8 w-full px-4 md:px-0">
+            {/* Custom button styling to match design images */}
+            <div className="w-full md:w-[220px]">
+              <Link
+                href="/aanbod"
+                className="elementor-button block w-full md:w-full bg-gold hover:bg-transparent hover:text-white text-white rounded-sm border-2 border-gold transition-standard py-2 px-6 text-center"
+              >
+                <span className="elementor-button-content-wrapper">
+                  <span className="elementor-button-text font-medium">
+                    Bekijk collectie
+                  </span>
+                </span>
               </Link>
-            </Button>
-            <Button asChild variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-6 rounded text-lg">
-              <Link href="/contact">
-                Afspraak maken
+            </div>
+            <div className="w-full md:w-[220px]">
+              <Link
+                href="/contact"
+                className="elementor-button block w-full md:w-full border-2 border-white bg-transparent hover:bg-white hover:text-gold text-white rounded-sm transition-standard py-2 px-6 text-center"
+              >
+                <span className="elementor-button-content-wrapper">
+                  <span className="elementor-button-text font-medium">
+                    Afspraak maken
+                  </span>
+                </span>
               </Link>
-            </Button>
+            </div>
           </div>
         </motion.div>
       </div>

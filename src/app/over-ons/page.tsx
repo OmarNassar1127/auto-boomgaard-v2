@@ -1,17 +1,17 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { PageHero } from '@/components/ui/page-hero';
-import { CTABanner } from '@/components/home/cta-banner';
-import { SectionHeader } from '@/components/ui/section-header';
+import React from "react";
+import Image from "next/image";
+import { PageHero } from "@/components/ui/page-hero";
+import { CTABanner } from "@/components/home/cta-banner";
+import { SectionHeader } from "@/components/ui/section-header";
 
 export default function OverOnsPage() {
   return (
     <div>
       <PageHero
         title="Over Ons"
-        subtitle="Maak kennis met Van Bruggen Automotive"
+        subtitle="Maak kennis met Auto Boomgaard"
         backgroundImage="https://ext.same-assets.com/611734785/3433641455.jpeg"
       />
 
@@ -26,19 +26,25 @@ export default function OverOnsPage() {
 
               <div className="space-y-6 text-dark-dark/80">
                 <p>
-                  Van Bruggen Automotive is al sinds 2014 dé Audi Specialist van Nederland en een echt familiebedrijf.
-                  Bij ons draait alles om passie voor auto's en persoonlijke service. Wat begon als een hobby is uitgegroeid
-                  tot een bloeiend bedrijf met een sterke reputatie in de automotive wereld.
+                  Auto Boomgaard is al sinds 2014 dé Audi Specialist van
+                  Nederland en een echt familiebedrijf. Bij ons draait alles om
+                  passie voor auto's en persoonlijke service. Wat begon als een
+                  hobby is uitgegroeid tot een bloeiend bedrijf met een sterke
+                  reputatie in de automotive wereld.
                 </p>
                 <p>
-                  Onze specialisatie in Audi maakt dat we een diepgaande kennis hebben van deze merken. We kennen
-                  elk model, elke technische specificatie en weten precies wat er nodig is om deze premium auto's
-                  in topconditie te houden of naar uw persoonlijke wensen aan te passen.
+                  Onze specialisatie in Audi maakt dat we een diepgaande kennis
+                  hebben van deze merken. We kennen elk model, elke technische
+                  specificatie en weten precies wat er nodig is om deze premium
+                  auto's in topconditie te houden of naar uw persoonlijke wensen
+                  aan te passen.
                 </p>
                 <p>
-                  Wat ons onderscheidt is de kwaliteit van onze unieke voorraad. We selecteren alleen uitzonderlijke
-                  exemplaren die echt iets bijzonders hebben. Denk aan auto's met hoge specificaties, lage kilometerstanden
-                  en een uitstraling die simpelweg onweerstaanbaar is.
+                  Wat ons onderscheidt is de kwaliteit van onze unieke voorraad.
+                  We selecteren alleen uitzonderlijke exemplaren die echt iets
+                  bijzonders hebben. Denk aan auto's met hoge specificaties,
+                  lage kilometerstanden en een uitstraling die simpelweg
+                  onweerstaanbaar is.
                 </p>
               </div>
             </div>
@@ -46,7 +52,7 @@ export default function OverOnsPage() {
             <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="https://ext.same-assets.com/3632404423/3433641455.jpeg"
-                alt="Van Bruggen Automotive showroom"
+                alt="Auto Boomgaard showroom"
                 fill
                 className="object-cover"
               />
@@ -67,37 +73,79 @@ export default function OverOnsPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8 text-white"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"
+                  />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-dark-dark">Kwaliteit</h3>
+              <h3 className="text-xl font-semibold mb-3 text-dark-dark">
+                Kwaliteit
+              </h3>
               <p className="text-dark-dark/80">
-                We streven naar de hoogste kwaliteit in alles wat we doen, van de auto's die we selecteren tot de service die we bieden.
+                We streven naar de hoogste kwaliteit in alles wat we doen, van
+                de auto's die we selecteren tot de service die we bieden.
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8 text-white"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                  />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-dark-dark">Persoonlijke aandacht</h3>
+              <h3 className="text-xl font-semibold mb-3 text-dark-dark">
+                Persoonlijke aandacht
+              </h3>
               <p className="text-dark-dark/80">
-                Bij ons bent u geen nummer. We nemen de tijd om uw wensen te begrijpen en bieden oplossingen die perfect bij u passen.
+                Bij ons bent u geen nummer. We nemen de tijd om uw wensen te
+                begrijpen en bieden oplossingen die perfect bij u passen.
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-white">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-8 h-8 text-white"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
+                  />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-dark-dark">Expertise</h3>
+              <h3 className="text-xl font-semibold mb-3 text-dark-dark">
+                Expertise
+              </h3>
               <p className="text-dark-dark/80">
-                Onze diepgaande kennis van Audi en jarenlange ervaring stelt ons in staat om de beste service en advies te bieden.
+                Onze diepgaande kennis van Audi en jarenlange ervaring stelt ons
+                in staat om de beste service en advies te bieden.
               </p>
             </div>
           </div>
@@ -117,26 +165,35 @@ export default function OverOnsPage() {
             <div className="lg:order-2">
               <div className="space-y-6 text-dark-dark/80">
                 <p>
-                  Onze showroom in Uitgeest is de perfecte plek om uw droomauto te ontdekken. In een
-                  ontspannen en persoonlijke sfeer kunt u op uw gemak onze exclusieve collectie bekijken.
+                  Onze showroom in Uitgeest is de perfecte plek om uw droomauto
+                  te ontdekken. In een ontspannen en persoonlijke sfeer kunt u
+                  op uw gemak onze exclusieve collectie bekijken.
                 </p>
                 <p>
-                  We hebben bewust gekozen voor een concept 'op afspraak', zodat we u onze volledige aandacht
-                  kunnen geven. Geen verkoopdruk, maar een prettig gesprek over uw wensen en behoeften.
+                  We hebben bewust gekozen voor een concept 'op afspraak', zodat
+                  we u onze volledige aandacht kunnen geven. Geen verkoopdruk,
+                  maar een prettig gesprek over uw wensen en behoeften.
                 </p>
                 <p>
-                  Naast onze showroom beschikken we over een volledig uitgeruste werkplaats waar we onderhoud,
-                  customizing, detailing en alarminbouw verzorgen. Alles onder één dak, met de kwaliteit en
-                  service die u van ons mag verwachten.
+                  Naast onze showroom beschikken we over een volledig uitgeruste
+                  werkplaats waar we onderhoud, customizing, detailing en
+                  alarminbouw verzorgen. Alles onder één dak, met de kwaliteit
+                  en service die u van ons mag verwachten.
                 </p>
 
                 <div className="pt-4">
                   <h3 className="font-semibold text-dark-dark mb-2">Adres</h3>
-                  <p>Populierenlaan 41<br />1911BK Uitgeest</p>
+                  <p>
+                    Ondernemingsweg 56c
+                    <br />
+                    1422 DZ Uithoorn
+                  </p>
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-dark-dark mb-2">Openingstijden</h3>
+                  <h3 className="font-semibold text-dark-dark mb-2">
+                    Openingstijden
+                  </h3>
                   <p className="italic">Wij zijn alleen open op afspraak.</p>
                   <div className="grid grid-cols-2 mt-2 gap-y-1 max-w-xs">
                     <div>Maandag - Vrijdag</div>
@@ -144,7 +201,7 @@ export default function OverOnsPage() {
                     <div>Zaterdag</div>
                     <div>9:30 - 16:00</div>
                     <div>Zondag</div>
-                    <div>Gesloten</div>
+                    <div>Op afspraak</div>
                   </div>
                 </div>
               </div>
@@ -160,7 +217,7 @@ export default function OverOnsPage() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0"
-                title="Locatie Van Bruggen Automotive - Populierenlaan 41, Uitgeest"
+                title="Locatie Auto Boomgaard - Ondernemingsweg 56c, Uitgeest"
               />
             </div>
           </div>
