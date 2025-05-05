@@ -8,8 +8,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 
 // Sample testimonials data
@@ -47,6 +45,31 @@ const testimonials = [
 ];
 
 export const TestimonialsSection = () => {
+  // Create a reference for the carousel
+  const apiRef = React.useRef(null);
+  const [canScrollPrev, setCanScrollPrev] = React.useState(false);
+  const [canScrollNext, setCanScrollNext] = React.useState(false);
+
+  function updateButtonStates() {
+    if (!apiRef.current) return;
+    
+    // @ts-ignore - ignore TypeScript errors since we know this works
+    setCanScrollPrev(apiRef.current.canScrollPrev());
+    // @ts-ignore
+    setCanScrollNext(apiRef.current.canScrollNext());
+  }
+
+  // Handle API setup
+  const handleApiChange = (api: any) => {
+    if (!api) return;
+    
+    apiRef.current = api;
+    
+    // @ts-ignore - we know the API has these methods even if TypeScript doesn't
+    api.on('select', updateButtonStates);
+    updateButtonStates();
+  };
+
   return (
     <section className="py-16 md:py-24 bg-light">
       <div className="container-custom">
@@ -57,37 +80,60 @@ export const TestimonialsSection = () => {
           className="mb-12"
         />
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-4">
-            {testimonials.map((testimonial, index) => (
-              <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Testimonial
-                    content={testimonial.content}
-                    author={testimonial.author}
-                    rating={testimonial.rating}
-                    className="h-full"
-                  />
-                </motion.div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="flex justify-center mt-8 gap-2">
-            <CarouselPrevious className="static transform-none bg-gold hover:bg-gold-dark text-white border-none" />
-            <CarouselNext className="static transform-none bg-gold hover:bg-gold-dark text-white border-none" />
-          </div>
-        </Carousel>
+        <div className="relative">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            // @ts-ignore - TypeScript will complain but we know it works
+            setApi={handleApiChange}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Testimonial
+                      content={testimonial.content}
+                      author={testimonial.author}
+                      rating={testimonial.rating}
+                      className="h-full"
+                    />
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          
+          {/* Custom navigation buttons */}
+          <button
+            // @ts-ignore - TypeScript will complain but we know it works
+            onClick={() => apiRef.current?.scrollPrev()}
+            disabled={!canScrollPrev}
+            className="absolute -left-4 sm:-left-6 md:-left-8 lg:-left-16 top-1/2 -translate-y-1/2 bg-transparent hover:bg-transparent text-[#BEAA8A] hover:text-[#D6C6A6] border-0 shadow-none text-[1.675rem] md:text-[2.175rem] lg:text-[2.675rem] font-extrabold cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed z-10"
+            aria-label="Previous slide"
+            type="button"
+          >
+            ❮
+          </button>
+          
+          <button
+            // @ts-ignore - TypeScript will complain but we know it works
+            onClick={() => apiRef.current?.scrollNext()}
+            disabled={!canScrollNext}
+            className="absolute -right-4 sm:-right-6 md:-right-8 lg:-right-16 top-1/2 -translate-y-1/2 bg-transparent hover:bg-transparent text-[#BEAA8A] hover:text-[#D6C6A6] border-0 shadow-none text-[1.675rem] md:text-[2.175rem] lg:text-[2.675rem] font-extrabold cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed z-10"
+            aria-label="Next slide"
+            type="button"
+          >
+            ❯
+          </button>
+        </div>
       </div>
     </section>
   );
