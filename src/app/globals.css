@@ -92,6 +92,12 @@
   .elementor-button:hover {
     @apply transform-none;
   }
+  
+  /* Elementor navigation styles */
+  .e--pointer-underline .elementor-item:after,
+  .group:hover .group-hover\:w-full {
+    @apply transition-all duration-300 ease-in-out;
+  }
 }
 
 @layer utilities {

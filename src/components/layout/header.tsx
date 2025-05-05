@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { FaWhatsapp, FaInstagram, FaBars, FaSearch } from "react-icons/fa";
 import { MdEmail, MdPhone, MdClose } from "react-icons/md";
 import { cn } from "@/lib/utils";
@@ -20,6 +21,7 @@ const navigation = [
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,42 +111,34 @@ export const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  "transition-smooth font-medium",
-                  scrolled 
-                    ? "text-dark hover:text-white" 
-                    : "text-white hover:text-gold"
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/contact"
-                className={cn(
-                  "py-2 px-4 rounded transition-smooth flex items-center",
-                  scrolled
-                    ? "bg-dark text-white hover:bg-dark-light"
-                    : "bg-gold text-white hover:bg-gold-dark"
-                )}
-              >
-                Contact opnemen
-              </Link>
-              <button className={cn(
-                "transition-smooth",
-                scrolled 
-                  ? "text-dark hover:text-white" 
-                  : "text-white hover:text-gold"
-              )}>
-                <FaSearch className="w-5 h-5" />
-              </button>
-            </div>
+          <nav className="hidden md:flex items-center">
+            <ul className="flex space-x-6 mr-4">
+              {navigation.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-white hover:text-white hover:font-semibold transition-standard font-medium relative px-1 py-2 group"
+                  >
+                    {item.name}
+                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
+                    {pathname === item.href && (
+                      <span className="absolute left-0 bottom-0 h-0.5 w-full bg-white"></span>
+                    )}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/contact"
+              className="elementor-button elementor-size-sm bg-[#c1b497] text-white hover:bg-[#d2c5a8] transition-standard rounded-sm py-2 px-5 ml-2"
+            >
+              <span className="elementor-button-content-wrapper">
+                <span className="elementor-button-text">Contact opnemen</span>
+              </span>
+            </Link>
+            <button className="text-white hover:text-gold transition-standard ml-4">
+              <FaSearch className="w-5 h-5" />
+            </button>
           </nav>
 
           {/* Mobile menu */}
@@ -184,16 +178,21 @@ export const Header = () => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="py-2 border-b border-gray-700 hover:text-gold transition-smooth"
+                        className={`py-2 border-b border-gray-700 hover:text-white hover:font-semibold transition-smooth relative group ${pathname === item.href ? 'font-semibold' : ''}`}
                       >
                         {item.name}
+                        {pathname === item.href && (
+                          <span className="absolute left-0 bottom-0 h-0.5 w-full bg-white"></span>
+                        )}
                       </Link>
                     ))}
                     <Link
                       href="/contact"
-                      className="mt-4 bg-gold text-white py-3 px-6 rounded text-center hover:bg-gold-dark transition-smooth"
+                      className="mt-4 bg-[#c1b497] text-white py-3 px-6 rounded-sm text-center hover:bg-[#d2c5a8] transition-smooth"
                     >
-                      Contact opnemen
+                      <span className="elementor-button-content-wrapper">
+                        <span className="elementor-button-text">Contact opnemen</span>
+                      </span>
                     </Link>
                   </nav>
                   <div className="mt-auto">
