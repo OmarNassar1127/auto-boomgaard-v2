@@ -24,11 +24,14 @@ export const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
+      // Add a small debounce effect for smoother transitions
       if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
+        setTimeout(() => {
+          setScrolled(isScrolled);
+        }, 10);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -37,19 +40,23 @@ export const Header = () => {
   const goldColor = "#BEAA8A";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-smooth">
       {/* Top bar - Only visible when not scrolled */}
       <div 
         className={cn(
-          "bg-[#BEAA8A] transition-all duration-300 overflow-hidden",
+          "bg-[#BEAA8A] transition-smooth overflow-hidden",
           scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
         )}
+        style={{
+          transitionProperty: "max-height, opacity, transform",
+          transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)"
+        }}
       >
         <div className="container-custom flex justify-between items-center text-white text-sm py-2">
           <div className="flex items-center space-x-4">
             <Link
               href="mailto:info@vanbruggenautomotive.nl"
-              className="flex items-center hover:text-dark transition-standard"
+              className="flex items-center hover:text-dark transition-smooth"
             >
               <MdEmail className="mr-1" />
               <span className="hidden md:block">
@@ -58,14 +65,14 @@ export const Header = () => {
             </Link>
             <Link
               href="tel:+31619201375"
-              className="flex items-center hover:text-dark transition-standard"
+              className="flex items-center hover:text-dark transition-smooth"
             >
               <MdPhone className="mr-1" />
               <span className="hidden md:block">+31 6 19 20 13 75</span>
             </Link>
             <Link
               href="https://api.whatsapp.com/send/?phone=31613024070"
-              className="flex items-center hover:text-dark transition-standard"
+              className="flex items-center hover:text-dark transition-smooth"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -79,11 +86,14 @@ export const Header = () => {
       {/* Main navigation */}
       <div 
         className={cn(
-          "transition-all duration-300 py-4",
+          "transition-smooth py-4",
           scrolled 
             ? "bg-[#BEAA8A] shadow-lg" 
             : "bg-transparent"
         )}
+        style={{
+          transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)"
+        }}
       >
         <div className="container-custom flex justify-between items-center">
           <Link href="/" className="relative w-32 md:w-40">
@@ -104,7 +114,7 @@ export const Header = () => {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "transition-standard font-medium",
+                  "transition-smooth font-medium",
                   scrolled 
                     ? "text-dark hover:text-white" 
                     : "text-white hover:text-gold"
@@ -117,7 +127,7 @@ export const Header = () => {
               <Link
                 href="/contact"
                 className={cn(
-                  "py-2 px-4 rounded transition-standard flex items-center",
+                  "py-2 px-4 rounded transition-smooth flex items-center",
                   scrolled
                     ? "bg-dark text-white hover:bg-dark-light"
                     : "bg-gold text-white hover:bg-gold-dark"
@@ -126,7 +136,7 @@ export const Header = () => {
                 Contact opnemen
               </Link>
               <button className={cn(
-                "transition-standard",
+                "transition-smooth",
                 scrolled 
                   ? "text-dark hover:text-white" 
                   : "text-white hover:text-gold"
@@ -143,7 +153,7 @@ export const Header = () => {
                 <Button
                   variant="ghost"
                   className={cn(
-                    "focus:outline-none",
+                    "focus:outline-none transition-smooth",
                     scrolled 
                       ? "text-dark hover:text-white" 
                       : "text-white hover:text-gold"
@@ -170,14 +180,14 @@ export const Header = () => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="py-2 border-b border-gray-700 hover:text-gold transition-standard"
+                        className="py-2 border-b border-gray-700 hover:text-gold transition-smooth"
                       >
                         {item.name}
                       </Link>
                     ))}
                     <Link
                       href="/contact"
-                      className="mt-4 bg-gold text-white py-3 px-6 rounded text-center hover:bg-gold-dark transition-standard"
+                      className="mt-4 bg-gold text-white py-3 px-6 rounded text-center hover:bg-gold-dark transition-smooth"
                     >
                       Contact opnemen
                     </Link>
@@ -188,7 +198,7 @@ export const Header = () => {
                         href="https://www.instagram.com/vanbruggenautomotive/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-gold transition-standard"
+                        className="hover:text-gold transition-smooth"
                       >
                         <FaInstagram className="w-5 h-5" />
                       </Link>
@@ -196,7 +206,7 @@ export const Header = () => {
                         href="https://api.whatsapp.com/send/?phone=31613024070"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-gold transition-standard"
+                        className="hover:text-gold transition-smooth"
                       >
                         <FaWhatsapp className="w-5 h-5" />
                       </Link>
@@ -204,13 +214,13 @@ export const Header = () => {
                     <div className="flex flex-col space-y-2 text-sm text-gray-300">
                       <Link
                         href="mailto:info@vanbruggenautomotive.nl"
-                        className="hover:text-gold transition-standard"
+                        className="hover:text-gold transition-smooth"
                       >
                         info@vanbruggenautomotive.nl
                       </Link>
                       <Link
                         href="tel:+31619201375"
-                        className="hover:text-gold transition-standard"
+                        className="hover:text-gold transition-smooth"
                       >
                         +31 6 19 20 13 75
                       </Link>
