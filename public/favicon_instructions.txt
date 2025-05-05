@@ -1,0 +1,24 @@
+To fix the favicon.ico 404 error, please add a favicon.ico file to this directory.
+
+You can create a favicon by:
+1. Using a tool like https://favicon.io/ to generate a favicon
+2. Converting your logo to a .ico file
+3. Or simply copying a favicon.ico file from another project
+
+Once you have the favicon.ico file, place it in this 'public' directory.
+
+Alternatively, you can modify the head in layout.tsx to use a different favicon format:
+
+```tsx
+// In src/app/layout.tsx
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  // ... other metadata
+  icons: {
+    icon: '/path-to-your-icon.png', // or .svg
+    apple: '/path-to-apple-icon.png',
+    // other icon types as needed
+  },
+};
+```

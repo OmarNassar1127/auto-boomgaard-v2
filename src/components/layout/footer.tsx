@@ -19,7 +19,8 @@ export const Footer = () => {
                 alt="Van Bruggen Automotive"
                 width={180}
                 height={72}
-                className="object-contain"
+                className="object-contain h-auto"
+                style={{ width: 'auto', maxWidth: '180px' }}
               />
             </Link>
             <div className="text-dark-dark space-y-1">
@@ -131,25 +132,45 @@ export const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div className="text-dark-dark">
+          <div className="text-dark-dark" suppressHydrationWarning>
             <h3 className="uppercase text-sm font-semibold mb-6">Nieuwsbrief</h3>
             <p className="text-sm mb-4">
               Meld je aan voor onze nieuwsbrief en blijf op de hoogte van onze nieuwe voorraad.
             </p>
-            <form className="space-y-3">
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
-                required
-              />
-              <Button
-                type="submit"
-                className="w-full bg-gold hover:bg-gold-dark text-white font-medium py-2 px-4 rounded transition-standard"
-              >
-                Aanmelden
-              </Button>
-            </form>
+            {/* Instead of a regular form, use key to force remounting on the client */}
+            {typeof window !== 'undefined' ? (
+              <form className="space-y-3" key="newsletter-form" suppressHydrationWarning>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
+                  required
+                  suppressHydrationWarning
+                />
+                <Button
+                  type="submit"
+                  className="w-full bg-gold hover:bg-gold-dark text-white font-medium py-2 px-4 rounded transition-standard"
+                >
+                  Aanmelden
+                </Button>
+              </form>
+            ) : (
+              <form className="space-y-3" suppressHydrationWarning>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
+                  required
+                  suppressHydrationWarning
+                />
+                <Button
+                  type="submit"
+                  className="w-full bg-gold hover:bg-gold-dark text-white font-medium py-2 px-4 rounded transition-standard"
+                >
+                  Aanmelden
+                </Button>
+              </form>
+            )}
           </div>
         </div>
 
