@@ -160,12 +160,12 @@ export const Header = () => {
                   <FaBars className="w-6 h-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="bg-dark-dark w-full sm:max-w-md">
+              <SheetContent className="bg-white w-[80%] sm:max-w-md">
                 <SheetTitle className="sr-only">Navigatie Menu</SheetTitle>
                 <SheetDescription className="sr-only">
                   Navigatiemenu van Auto Boomgaard
                 </SheetDescription>
-                <div className="flex flex-col h-full text-white">
+                <div className="flex flex-col h-full text-black">
                   <div className="flex justify-between items-center mb-8">
                     <Link href="/" className="relative w-32">
                       <Image
@@ -183,19 +183,19 @@ export const Header = () => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className={`py-2 border-b border-gray-700 hover:text-white transition-smooth relative group ${
+                        className={`py-2 border-b border-gray-200 hover:text-[#BEAA8A] transition-smooth relative group ${
                           pathname === item.href ? "font-semibold" : ""
                         }`}
                       >
                         {item.name}
                         {pathname === item.href && (
-                          <span className="absolute left-0 bottom-0 h-0.5 w-full bg-white"></span>
+                          <span className="absolute left-0 bottom-0 h-0.5 w-full bg-[#BEAA8A]"></span>
                         )}
                       </Link>
                     ))}
                     <Link
                       href="/contact"
-                      className="mt-4 border-2 border-white bg-transparent hover:bg-white hover:text-[#BEAA8A] text-white rounded-sm py-3 px-6 text-center transition-smooth"
+                      className="mt-4 border-2 border-[#BEAA8A] bg-transparent hover:bg-[#BEAA8A] hover:text-white text-[#BEAA8A] rounded-sm py-3 px-6 text-center transition-smooth"
                     >
                       <span className="elementor-button-content-wrapper">
                         <span className="elementor-button-text font-medium">
@@ -205,12 +205,13 @@ export const Header = () => {
                     </Link>
                   </nav>
                   <div className="mt-auto">
+                    <div className="w-full h-px bg-gray-200 my-6"></div>
                     <div className="flex items-center space-x-6 mb-4">
                       <Link
                         href="https://www.instagram.com/vanbruggenautomotive/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-gold transition-smooth"
+                        className="text-black hover:text-[#BEAA8A] transition-smooth"
                       >
                         <FaInstagram className="w-5 h-5" />
                       </Link>
@@ -218,21 +219,21 @@ export const Header = () => {
                         href="https://api.whatsapp.com/send/?phone=31613024070"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-gold transition-smooth"
+                        className="text-black hover:text-[#BEAA8A] transition-smooth"
                       >
                         <FaWhatsapp className="w-5 h-5" />
                       </Link>
                     </div>
-                    <div className="flex flex-col space-y-2 text-sm text-gray-300">
+                    <div className="flex flex-col space-y-2 text-sm text-black">
                       <Link
                         href="mailto:info@vanbruggenautomotive.nl"
-                        className="hover:text-gold transition-smooth"
+                        className="hover:text-[#BEAA8A] transition-smooth"
                       >
                         info@vanbruggenautomotive.nl
                       </Link>
                       <Link
                         href="tel:+31619201375"
-                        className="hover:text-gold transition-smooth"
+                        className="hover:text-[#BEAA8A] transition-smooth"
                       >
                         +31 6 19 20 13 75
                       </Link>
