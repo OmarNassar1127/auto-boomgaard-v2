@@ -7,7 +7,13 @@ import { usePathname } from "next/navigation";
 import { FaWhatsapp, FaInstagram, FaBars, FaSearch } from "react-icons/fa";
 import { MdEmail, MdPhone, MdClose } from "react-icons/md";
 import { cn } from "@/lib/utils";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 
 const navigation = [
@@ -44,14 +50,14 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-smooth">
       {/* Top bar - Only visible when not scrolled */}
-      <div 
+      <div
         className={cn(
           "bg-[#BEAA8A] transition-smooth overflow-hidden",
           scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
         )}
         style={{
           transitionProperty: "max-height, opacity, transform",
-          transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)"
+          transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
         <div className="container-custom flex justify-between items-center text-white text-sm py-2">
@@ -86,26 +92,24 @@ export const Header = () => {
       </div>
 
       {/* Main navigation */}
-      <div 
+      <div
         className={cn(
           "transition-smooth py-4",
-          scrolled 
-            ? "bg-[#BEAA8A] shadow-lg" 
-            : "bg-transparent"
+          scrolled ? "bg-[#BEAA8A] shadow-lg" : "bg-transparent"
         )}
         style={{
-          transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)"
+          transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
         <div className="container-custom flex justify-between items-center">
           <Link href="/" className="relative w-32 md:w-40">
             <Image
               src="https://ext.same-assets.com/3632404423/2187716925.png"
-              alt="Van Bruggen Automotive"
+              alt="Auto Boomgaard"
               width={200}
               height={80}
               className="object-contain h-auto"
-              style={{ width: 'auto', maxWidth: '100%' }}
+              style={{ width: "auto", maxWidth: "100%" }}
               priority
             />
           </Link>
@@ -149,8 +153,8 @@ export const Header = () => {
                   variant="ghost"
                   className={cn(
                     "focus:outline-none transition-smooth",
-                    scrolled 
-                      ? "text-dark hover:text-white" 
+                    scrolled
+                      ? "text-dark hover:text-white"
                       : "text-white hover:text-gold"
                   )}
                 >
@@ -159,17 +163,19 @@ export const Header = () => {
               </SheetTrigger>
               <SheetContent className="bg-dark-dark w-full sm:max-w-md">
                 <SheetTitle className="sr-only">Navigatie Menu</SheetTitle>
-                <SheetDescription className="sr-only">Navigatiemenu van Van Bruggen Automotive</SheetDescription>
+                <SheetDescription className="sr-only">
+                  Navigatiemenu van Auto Boomgaard
+                </SheetDescription>
                 <div className="flex flex-col h-full text-white">
                   <div className="flex justify-between items-center mb-8">
                     <Link href="/" className="relative w-32">
                       <Image
                         src="https://ext.same-assets.com/3632404423/2187716925.png"
-                        alt="Van Bruggen Automotive"
+                        alt="Auto Boomgaard"
                         width={150}
                         height={60}
                         className="object-contain h-auto"
-                        style={{ width: 'auto' }}
+                        style={{ width: "auto" }}
                       />
                     </Link>
                   </div>
@@ -178,7 +184,9 @@ export const Header = () => {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className={`py-2 border-b border-gray-700 hover:text-white hover:font-semibold transition-smooth relative group ${pathname === item.href ? 'font-semibold' : ''}`}
+                        className={`py-2 border-b border-gray-700 hover:text-white hover:font-semibold transition-smooth relative group ${
+                          pathname === item.href ? "font-semibold" : ""
+                        }`}
                       >
                         {item.name}
                         {pathname === item.href && (
@@ -191,7 +199,9 @@ export const Header = () => {
                       className="mt-4 bg-[#c1b497] text-white py-3 px-6 rounded-sm text-center hover:bg-[#d2c5a8] transition-smooth"
                     >
                       <span className="elementor-button-content-wrapper">
-                        <span className="elementor-button-text">Contact opnemen</span>
+                        <span className="elementor-button-text">
+                          Contact opnemen
+                        </span>
                       </span>
                     </Link>
                   </nav>

@@ -19,7 +19,7 @@ export const Footer = () => {
             <Link href="/" className="inline-block mb-4">
               <Image
                 src="https://vanbruggenautomotive.nl/wp-content/uploads/2024/11/Logo-ZwartGoud-e1731420381483-1024x472.png"
-                alt="Van Bruggen Automotive"
+                alt="Auto Boomgaard"
                 width={300}
                 height={138}
                 className="object-contain h-auto max-w-full"
@@ -233,8 +233,7 @@ export const Footer = () => {
       <div className="border-t border-gray-200 py-6">
         <div className="container-custom text-gray-600 text-sm flex flex-col md:flex-row justify-between items-center">
           <p>
-            © Copyright {currentYear} Van Bruggen Automotive | Designed and
-            developed by{" "}
+            © Copyright {currentYear} Auto Boomgaard | Designed and developed by{" "}
             <a
               href="https://dominiumlabs.com/"
               target="_blank"

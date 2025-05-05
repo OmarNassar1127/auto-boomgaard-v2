@@ -287,7 +287,7 @@ export default function ContactPage() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0"
-                    title="Locatie Van Bruggen Automotive - Ondernemingsweg 56c, Uitgeest"
+                    title="Locatie Auto Boomgaard - Ondernemingsweg 56c, Uitgeest"
                   />
                 </div>
               </div>

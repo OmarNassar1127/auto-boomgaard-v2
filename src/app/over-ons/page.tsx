@@ -11,7 +11,7 @@ export default function OverOnsPage() {
     <div>
       <PageHero
         title="Over Ons"
-        subtitle="Maak kennis met Van Bruggen Automotive"
+        subtitle="Maak kennis met Auto Boomgaard"
         backgroundImage="https://ext.same-assets.com/611734785/3433641455.jpeg"
       />
 
@@ -26,7 +26,7 @@ export default function OverOnsPage() {
 
               <div className="space-y-6 text-dark-dark/80">
                 <p>
-                  Van Bruggen Automotive is al sinds 2014 dé Audi Specialist van
+                  Auto Boomgaard is al sinds 2014 dé Audi Specialist van
                   Nederland en een echt familiebedrijf. Bij ons draait alles om
                   passie voor auto's en persoonlijke service. Wat begon als een
                   hobby is uitgegroeid tot een bloeiend bedrijf met een sterke
@@ -52,7 +52,7 @@ export default function OverOnsPage() {
             <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="https://ext.same-assets.com/3632404423/3433641455.jpeg"
-                alt="Van Bruggen Automotive showroom"
+                alt="Auto Boomgaard showroom"
                 fill
                 className="object-cover"
               />
@@ -217,7 +217,7 @@ export default function OverOnsPage() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0"
-                title="Locatie Van Bruggen Automotive - Ondernemingsweg 56c, Uitgeest"
+                title="Locatie Auto Boomgaard - Ondernemingsweg 56c, Uitgeest"
               />
             </div>
           </div>
