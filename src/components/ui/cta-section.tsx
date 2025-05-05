@@ -74,7 +74,7 @@ export const CTASection = ({
 
           {buttons.length > 0 && (
             <div className={cn(
-              'flex flex-wrap gap-4',
+              'flex flex-col md:flex-row flex-wrap gap-4',
               alignment === 'center' ? 'justify-center' : 'justify-start'
             )}>
               {buttons.map((button) => {
@@ -83,44 +83,45 @@ export const CTASection = ({
 
                 if (button.variant === 'primary') {
                   return (
-                    <Button
-                      key={buttonKey}
-                      asChild
-                      className="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded"
-                    >
-                      <Link href={button.href}>
-                        {button.label}
+                    <div key={buttonKey} className="w-full md:w-[220px]">
+                      <Link
+                        href={button.href}
+                        className="elementor-button block w-full md:w-full bg-gold hover:bg-transparent hover:text-white text-white rounded-sm border-2 border-gold transition-standard py-2 px-6 text-center"
+                      >
+                        <span className="elementor-button-content-wrapper">
+                          <span className="elementor-button-text font-medium">{button.label}</span>
+                        </span>
                       </Link>
-                    </Button>
+                    </div>
                   );
                 }
 
                 if (button.variant === 'secondary') {
                   return (
-                    <Button
-                      key={buttonKey}
-                      asChild
-                      variant="secondary"
-                      className="bg-white text-dark-dark hover:bg-gray-100 px-6 py-2 rounded"
-                    >
-                      <Link href={button.href}>
-                        {button.label}
+                    <div key={buttonKey} className="w-full md:w-[220px]">
+                      <Link
+                        href={button.href}
+                        className="elementor-button block w-full md:w-full bg-white text-dark-dark hover:bg-transparent hover:text-white border-2 border-white rounded-sm transition-standard py-2 px-6 text-center"
+                      >
+                        <span className="elementor-button-content-wrapper">
+                          <span className="elementor-button-text font-medium">{button.label}</span>
+                        </span>
                       </Link>
-                    </Button>
+                    </div>
                   );
                 }
 
                 return (
-                  <Button
-                    key={buttonKey}
-                    asChild
-                    variant="outline"
-                    className="border-white text-white hover:bg-white/10 px-6 py-2 rounded"
-                  >
-                    <Link href={button.href}>
-                      {button.label}
+                  <div key={buttonKey} className="w-full md:w-[220px]">
+                    <Link
+                      href={button.href}
+                      className="elementor-button block w-full md:w-full border-2 border-white bg-transparent hover:bg-white hover:text-gold text-white rounded-sm transition-standard py-2 px-6 text-center"
+                    >
+                      <span className="elementor-button-content-wrapper">
+                        <span className="elementor-button-text font-medium">{button.label}</span>
+                      </span>
                     </Link>
-                  </Button>
+                  </div>
                 );
               })}
             </div>
