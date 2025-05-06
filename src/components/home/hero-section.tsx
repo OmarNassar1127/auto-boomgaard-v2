@@ -14,7 +14,7 @@ interface HeroSectionProps {
 
 export const HeroSection = ({
   className,
-  backgroundImage = "https://ext.same-assets.com/3632404423/2581911691.jpeg",
+  backgroundImage = "https://vanbruggenautomotive.nl/wp-content/uploads/2024/12/Showroom-3-scaled.jpg",
 }: HeroSectionProps) => {
   return (
     <section
