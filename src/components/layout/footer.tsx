@@ -48,9 +48,9 @@ export const Footer = () => {
               >
                 <FaMapMarkerAlt className="mr-2 mt-1 text-[#BEAA8A] flex-shrink-0" />
                 <span>
-                  Populierenlaan 41
+                  Ondernemingsweg 56c
                   <br />
-                  1911BK Uitgeest
+                  1422 DZ Uithoorn
                 </span>
               </Link>
             </div>
