@@ -21,7 +21,6 @@ const navigation = [
   { name: "Aanbod", href: "/aanbod" },
   { name: "Diensten", href: "/diensten" },
   { name: "Over ons", href: "/over-ons" },
-  { name: "Vacatures", href: "/vacatures" },
 ];
 
 export const Header = () => {

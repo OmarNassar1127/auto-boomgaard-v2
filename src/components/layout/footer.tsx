@@ -151,14 +151,6 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/vacatures"
-                  className="hover:text-[#BEAA8A] transition-standard"
-                >
-                  Vacatures
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/diensten"
                   className="hover:text-[#BEAA8A] transition-standard"
                 >
