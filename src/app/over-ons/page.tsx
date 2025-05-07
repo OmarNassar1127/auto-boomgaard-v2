@@ -12,7 +12,7 @@ export default function OverOnsPage() {
       <PageHero
         title="Over Ons"
         subtitle="Maak kennis met Auto Boomgaard"
-        backgroundImage="https://ext.same-assets.com/611734785/3433641455.jpeg"
+        backgroundImage="images/audi-5911624_1920.jpg"
       />
 
       <section className="py-16 md:py-24 bg-white">
@@ -51,7 +51,7 @@ export default function OverOnsPage() {
 
             <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="https://ext.same-assets.com/3632404423/3433641455.jpeg"
+                src="images/audi-r8-2474297_1920.jpg"
                 alt="Auto Boomgaard showroom"
                 fill
                 className="object-cover"
