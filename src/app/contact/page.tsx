@@ -206,7 +206,7 @@ export default function ContactPage() {
                           href="tel:+31619201375"
                           className="hover:text-gold transition-standard"
                         >
-                          +31 6 19 20 13 75
+                          +31 6 11 71 58 10
                         </Link>
                       </p>
                     </div>
@@ -218,10 +218,10 @@ export default function ContactPage() {
                       <h3 className="font-medium text-dark-dark">E-mail</h3>
                       <p className="text-dark-dark/80">
                         <Link
-                          href="mailto:info@vanbruggenautomotive.nl"
+                          href="mailto:info@autoboomgaard.nl"
                           className="hover:text-gold transition-standard"
                         >
-                          info@vanbruggenautomotive.nl
+                          info@autoboomgaard.nl
                         </Link>
                       </p>
                     </div>
@@ -233,7 +233,7 @@ export default function ContactPage() {
                       <h3 className="font-medium text-dark-dark">WhatsApp</h3>
                       <p className="text-dark-dark/80">
                         <Link
-                          href="https://api.whatsapp.com/send/?phone=31613024070"
+                          href="https://api.whatsapp.com/send/?phone=31611715810"
                           className="hover:text-gold transition-standard"
                           target="_blank"
                           rel="noopener noreferrer"

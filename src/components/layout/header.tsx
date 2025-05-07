@@ -27,6 +27,9 @@ export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  
+  // Check if current page is a car detail page
+  const isCarDetailPage = pathname.includes('/aanbod/') && pathname !== '/aanbod';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,53 +51,53 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-smooth">
-      {/* Top bar - Only visible when not scrolled */}
-      <div
-        className={cn(
-          "bg-[#BEAA8A] transition-smooth overflow-hidden",
-          scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
-        )}
-        style={{
-          transitionProperty: "max-height, opacity, transform",
-          transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-        }}
-      >
-        <div className="container-custom flex justify-between items-center text-white text-sm py-2">
-          <div className="flex items-center space-x-4">
-            <Link
-              href="mailto:info@vanbruggenautomotive.nl"
-              className="flex items-center hover:text-dark transition-smooth"
-            >
-              <MdEmail className="mr-1" />
-              <span className="hidden md:block">
-                info@vanbruggenautomotive.nl
-              </span>
-            </Link>
-            <Link
-              href="tel:+31619201375"
-              className="flex items-center hover:text-dark transition-smooth"
-            >
-              <MdPhone className="mr-1" />
-              <span className="hidden md:block">+31 6 19 20 13 75</span>
-            </Link>
-            <Link
-              href="https://api.whatsapp.com/send/?phone=31613024070"
-              className="flex items-center hover:text-dark transition-smooth"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaWhatsapp className="mr-1" />
-              <span className="hidden md:block">Whatsapp</span>
-            </Link>
+      {/* Top bar - Only visible when not scrolled AND not on car detail page */}
+      {!isCarDetailPage && (
+        <div
+          className={cn(
+            "bg-[#BEAA8A] transition-smooth overflow-hidden",
+            scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
+          )}
+          style={{
+            transitionProperty: "max-height, opacity, transform",
+            transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+          }}
+        >
+          <div className="container-custom flex justify-between items-center text-white text-sm py-2">
+            <div className="flex items-center space-x-4">
+              <Link
+                href="mailto:info@autoboomgaard.nl"
+                className="flex items-center hover:text-dark transition-smooth"
+              >
+                <MdEmail className="mr-1" />
+                <span className="hidden md:block">info@autoboomgaard.nl</span>
+              </Link>
+              <Link
+                href="tel:+31619201375"
+                className="flex items-center hover:text-dark transition-smooth"
+              >
+                <MdPhone className="mr-1" />
+                <span className="hidden md:block">+31 6 11 71 58 10</span>
+              </Link>
+              <Link
+                href="https://api.whatsapp.com/send/?phone=31611715810"
+                className="flex items-center hover:text-dark transition-smooth"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaWhatsapp className="mr-1" />
+                <span className="hidden md:block">Whatsapp</span>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
-      {/* Main navigation */}
+      {/* Main navigation - Always gold background on car detail pages */}
       <div
         className={cn(
           "transition-smooth py-3 md:py-4",
-          scrolled ? "bg-[#BEAA8A] shadow-lg" : "bg-transparent"
+          scrolled || isCarDetailPage ? "bg-[#BEAA8A] shadow-lg" : "bg-transparent"
         )}
         style={{
           transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
@@ -124,7 +127,7 @@ export const Header = () => {
                   >
                     {item.name}
                     <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
-                    {pathname === item.href && (
+                    {pathname === item.href || (item.href === '/aanbod' && pathname.includes('/aanbod/')) && (
                       <span className="absolute left-0 bottom-0 h-0.5 w-full bg-white"></span>
                     )}
                   </Link>
@@ -152,9 +155,7 @@ export const Header = () => {
                   size="sm"
                   className={cn(
                     "focus:outline-none transition-smooth p-1 sm:p-2",
-                    scrolled
-                      ? "text-white"
-                      : "text-white"
+                    scrolled ? "text-white" : "text-white"
                   )}
                 >
                   <FaBars className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -184,11 +185,13 @@ export const Header = () => {
                         key={item.name}
                         href={item.href}
                         className={`py-2 border-b border-gray-200 hover:text-[#BEAA8A] transition-smooth relative group ${
-                          pathname === item.href ? "font-semibold" : ""
+                          pathname === item.href || (item.href === '/aanbod' && pathname.includes('/aanbod/')) 
+                            ? "font-semibold" 
+                            : ""
                         }`}
                       >
                         {item.name}
-                        {pathname === item.href && (
+                        {(pathname === item.href || (item.href === '/aanbod' && pathname.includes('/aanbod/'))) && (
                           <span className="absolute left-0 bottom-0 h-0.5 w-full bg-[#BEAA8A]"></span>
                         )}
                       </Link>
@@ -216,7 +219,7 @@ export const Header = () => {
                         <FaInstagram className="w-5 h-5" />
                       </Link>
                       <Link
-                        href="https://api.whatsapp.com/send/?phone=31613024070"
+                        href="https://api.whatsapp.com/send/?phone=31611715810"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-black hover:text-[#BEAA8A] transition-smooth"
@@ -226,16 +229,16 @@ export const Header = () => {
                     </div>
                     <div className="flex flex-col space-y-2 text-sm text-black">
                       <Link
-                        href="mailto:info@vanbruggenautomotive.nl"
+                        href="mailto:info@autoboomgaard.nl"
                         className="hover:text-[#BEAA8A] transition-smooth"
                       >
-                        info@vanbruggenautomotive.nl
+                        info@autoboomgaard.nl
                       </Link>
                       <Link
                         href="tel:+31619201375"
                         className="hover:text-[#BEAA8A] transition-smooth"
                       >
-                        +31 6 19 20 13 75
+                        +31 6 11 71 58 10
                       </Link>
                     </div>
                   </div>

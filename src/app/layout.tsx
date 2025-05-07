@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
 export const metadata: Metadata = {
   title: "Auto Boomgaard | Dé Audi specialist van Nederland",
@@ -32,6 +33,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-grow pt-[30px]">{children}</main>
           <Footer />
+          <WhatsAppButton />
         </div>
       </body>
     </html>

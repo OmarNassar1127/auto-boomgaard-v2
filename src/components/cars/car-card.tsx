@@ -42,7 +42,7 @@ export const CarCard = ({
 
   return (
     <Link
-      href={`/voertuigen/${id}`}
+      href={`/aanbod/${id}`}
       className={cn(
         "block bg-white shadow-md hover:shadow-lg transition-standard overflow-hidden group",
         className
