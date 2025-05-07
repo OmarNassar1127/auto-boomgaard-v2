@@ -44,49 +44,53 @@ export const CarCard = ({
     <Link
       href={`/aanbod/${id}`}
       className={cn(
-        "block bg-white shadow-md hover:shadow-lg transition-standard overflow-hidden group",
+        "block rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 bg-white",
         className
       )}
     >
       <div className="relative">
         {isPromo && (
-          <div className="absolute top-0 left-0 bg-yellow-500 text-white py-1 px-3 z-10 font-medium">
+          <div className="absolute top-3 left-3 bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full z-10 shadow">
             Nieuw binnen
           </div>
         )}
-        <div className="relative h-60 overflow-hidden">
+
+        <div className="relative h-60">
           <Image
             src={image}
             alt={`${brand} ${model} ${variant}`}
             fill
-            className="object-cover group-hover:scale-105 transition-standard"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
-        <div className="p-4">
-          <div className="mb-2">
-            <h3 className="text-xl font-medium text-dark-dark">{brand}</h3>
-            <h4 className="text-lg font-medium text-dark-dark">{model}</h4>
-            <p className="text-dark-dark/80">{variant}</p>
-          </div>
-          <div className="flex justify-between items-center">
-            <div className="text-gold text-xl font-bold">{formattedPrice}</div>
-            <div className="text-dark-dark/60 text-sm">
-              {includingVAT ? "incl. BTW" : "Marge"}
-            </div>
+
+        <div className="p-5">
+          <div className="mb-3">
+            <h3 className="text-lg font-semibold text-gray-900">{brand}</h3>
+            <h4 className="text-md text-gray-700">{model}</h4>
+            <p className="text-sm text-gray-500">{variant}</p>
           </div>
 
-          <div className="mt-4 grid grid-cols-3 gap-2 text-sm">
-            <div className="flex flex-col">
-              <span className="text-dark-dark/60">KM Stand</span>
-              <span className="font-medium">{formattedKm}</span>
+          <div className="flex justify-between items-center mb-4">
+            <span className="text-xl font-bold text-gold">{formattedPrice}</span>
+            <span className="text-sm text-gray-500">
+              {includingVAT ? "incl. BTW" : "Marge"}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4 text-sm text-gray-700 relative">
+            {/* Vertical divider lines */}
+            <div className="flex flex-col items-start">
+              <div className="text-gray-500 text-xs">KM Stand</div>
+              <div className="font-medium">{formattedKm}</div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-dark-dark/60">Bouwjaar</span>
-              <span className="font-medium">{year}</span>
+            <div className="flex flex-col items-start border-l" style={{ borderColor: '#BEAA8A', paddingLeft: '1rem' }}>
+              <div className="text-gray-500 text-xs">Bouwjaar</div>
+              <div className="font-medium">{year}</div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-dark-dark/60">Kleur</span>
-              <span className="font-medium">{color}</span>
+            <div className="flex flex-col items-start border-l" style={{ borderColor: '#BEAA8A', paddingLeft: '1rem' }}>
+              <div className="text-gray-500 text-xs">Kleur</div>
+              <div className="font-medium">{color}</div>
             </div>
           </div>
         </div>

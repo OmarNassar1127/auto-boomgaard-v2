@@ -135,7 +135,7 @@ export default function AanbodPage() {
       <PageHero
         title="Aanbod"
         subtitle="Ontdek onze exclusieve modellen"
-        backgroundImage="https://vanbruggenautomotive.nl/wp-content/uploads/2024/12/Website-foto-4nieuw-1-scaled.jpg"
+        backgroundImage="/images/car-headlight-people-observing-automobiles-showroom.jpg"
         // backgroundImage="https://ext.same-assets.com/2181762223/3585094715.jpeg"
       />
 
