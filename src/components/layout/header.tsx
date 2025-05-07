@@ -28,8 +28,10 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   
-  // Check if current page is a car detail page
+  // Check if current page is a car detail page or contact page
   const isCarDetailPage = pathname.includes('/aanbod/') && pathname !== '/aanbod';
+  const isContactPage = pathname === '/contact';
+  const hideTopBar = isCarDetailPage || isContactPage;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,8 +53,8 @@ export const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-smooth">
-      {/* Top bar - Only visible when not scrolled AND not on car detail page */}
-      {!isCarDetailPage && (
+      {/* Top bar - Only visible when not on car detail or contact page */}
+      {!hideTopBar && (
         <div
           className={cn(
             "bg-[#BEAA8A] transition-smooth overflow-hidden",
@@ -93,11 +95,11 @@ export const Header = () => {
         </div>
       )}
 
-      {/* Main navigation - Always gold background on car detail pages */}
+      {/* Main navigation */}
       <div
         className={cn(
           "transition-smooth py-3 md:py-4",
-          scrolled || isCarDetailPage ? "bg-[#BEAA8A] shadow-lg" : "bg-transparent"
+          scrolled || hideTopBar ? "bg-[#BEAA8A] shadow-lg" : "bg-transparent"
         )}
         style={{
           transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
@@ -127,7 +129,7 @@ export const Header = () => {
                   >
                     {item.name}
                     <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
-                    {pathname === item.href || (item.href === '/aanbod' && pathname.includes('/aanbod/')) && (
+                    {(pathname === item.href || (item.href === '/aanbod' && pathname.includes('/aanbod/'))) && (
                       <span className="absolute left-0 bottom-0 h-0.5 w-full bg-white"></span>
                     )}
                   </Link>
@@ -185,9 +187,7 @@ export const Header = () => {
                         key={item.name}
                         href={item.href}
                         className={`py-2 border-b border-gray-200 hover:text-[#BEAA8A] transition-smooth relative group ${
-                          pathname === item.href || (item.href === '/aanbod' && pathname.includes('/aanbod/')) 
-                            ? "font-semibold" 
-                            : ""
+                          pathname === item.href || (item.href === '/aanbod' && pathname.includes('/aanbod/')) ? "font-semibold" : ""
                         }`}
                       >
                         {item.name}
