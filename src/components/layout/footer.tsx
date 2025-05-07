@@ -64,14 +64,14 @@ export const Footer = () => {
                 className="block hover:text-[#BEAA8A] transition-standard flex items-center"
               >
                 <FaPhoneAlt className="mr-2 text-[#BEAA8A] flex-shrink-0" />
-                +31 6 19 20 13 75
+                +31 6 11 71 58 10
               </Link>
               <Link
-                href="mailto:info@vanbruggenautomotive.nl"
+                href="mailto:info@autoboomgaard.nl"
                 className="block hover:text-[#BEAA8A] transition-standard flex items-center"
               >
                 <FaEnvelope className="mr-2 text-[#BEAA8A] flex-shrink-0" />
-                info@vanbruggenautomotive.nl
+                info@autoboomgaard.nl
               </Link>
             </div>
 
@@ -226,7 +226,7 @@ export const Footer = () => {
       <div className="border-t border-gray-200 py-6">
         <div className="container-custom text-gray-600 text-sm flex flex-col md:flex-row justify-between items-center">
           <p>
-            © Copyright {currentYear} Auto Boomgaard | Designed and developed by{" "}
+            © Copyright {currentYear} Auto Boomgaard | Developed by{" "}
             <a
               href="https://dominiumlabs.com/"
               target="_blank"
