@@ -27,18 +27,21 @@ export const Footer = () => {
       <div className="container-custom py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16">
           {/* Column 1: Logo and contact info section */}
-          <div className="space-y-6">
-            <Link href="/" className="inline-block mb-4">
-              <Image
-                src="/images/logo-zwart.png"
-                alt="Auto Boomgaard"
-                width={300}
-                height={138}
-                className="object-contain h-auto max-w-[30%] md:max-w-[70%]"
-              />
-            </Link>
+          <div className="space-y-3">
+          <button
+            onClick={scrollToTop}
+            className="inline-block mb-0 transition-standard text-[#BEAA8A] hover:text-gray-700"
+          >
+            <Image
+              src="/images/logo-zwart.png"
+              alt="Auto Boomgaard"
+              width={200}
+              height={180}
+              className="object-contain h-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
+            />
+          </button>
 
-            <div className="space-y-1 text-gray-700">
+            <div className="space-y-4 text-gray-700">
               <h3 className="text-[#BEAA8A] font-semibold text-base">Adres</h3>
               <Link
                 href="https://www.google.com/maps/dir/Current+Location/Van+Bruggen+Automotive+Populierenlaan+41+1911BK+Uitgeest"
@@ -55,7 +58,7 @@ export const Footer = () => {
               </Link>
             </div>
 
-            <div className="space-y-3 text-gray-700">
+            <div className="space-y-4 text-gray-700">
               <h3 className="text-[#BEAA8A] font-semibold text-base">
                 Contactgegevens
               </h3>
@@ -89,7 +92,7 @@ export const Footer = () => {
 
           {/* Column 2: Opening hours */}
           <div className="text-gray-700">
-            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">
+            <h3 className="uppercase text-sm font-bold mb-5 text-[#BEAA8A]">
               Openingstijden
             </h3>
 
@@ -113,7 +116,7 @@ export const Footer = () => {
 
           {/* Column 3: Menu */}
           <div className="text-gray-700">
-            <h3 className="uppercase text-sm font-bold mb-6 text-[#BEAA8A]">
+            <h3 className="uppercase text-sm font-bold mb-5 text-[#BEAA8A]">
               Menu
             </h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-sm">
