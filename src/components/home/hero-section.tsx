@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { BackgroundCarousel } from "@/components/ui/background-carousel";
 
 interface HeroSectionProps {
   className?: string;
@@ -16,6 +17,15 @@ export const HeroSection = ({
   className,
   backgroundImage = "https://vanbruggenautomotive.nl/wp-content/uploads/2024/12/Showroom-3-scaled.jpg",
 }: HeroSectionProps) => {
+  // Define carousel images
+  const carouselImages = [
+    "/images/a-q3.JPG",
+    "/images/a-q5.JPG",
+    "/images/a-q7.JPG",
+    "/images/a-rs3.JPG",
+    "/images/rr-velar.JPG",
+  ];
+  
   return (
     <section
       className={cn(
@@ -23,17 +33,12 @@ export const HeroSection = ({
         className
       )}
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={backgroundImage}
-          alt="Auto Boomgaard Hero"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-dark bg-opacity-50" />
-      </div>
+      {/* Background Carousel */}
+      <BackgroundCarousel 
+        images={carouselImages} 
+        interval={4000} // 7 seconds between transitions
+        transition={1.6} // 1.6 second fade transition
+      />
 
       {/* Content */}
       <div className="container-custom relative z-10 text-center">
@@ -78,8 +83,13 @@ export const HeroSection = ({
       </div>
 
       {/* Trustpilot rating */}
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center">
-        <div className="bg-white/10 backdrop-blur-sm py-2 px-4 rounded-full flex items-center text-white">
+      <motion.div 
+        className="absolute bottom-10 left-0 right-0 flex justify-center z-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
+      >
+        <div className="bg-white/10 backdrop-blur-sm py-2 px-4 rounded-full flex items-center text-white shadow-lg">
           <div className="flex mr-2">
             {[1, 2, 3, 4, 5].map((star) => (
               <svg
@@ -95,7 +105,7 @@ export const HeroSection = ({
           </div>
           <span className="text-sm">4.5/5 op basis van 248 reviews</span>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

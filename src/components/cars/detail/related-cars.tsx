@@ -2,148 +2,170 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
+import { motion } from 'framer-motion';
+import { CarCard } from '@/components/cars/car-card';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem
 } from '@/components/ui/carousel';
 
+// Use the same car data from featured-cars
 const relatedCars = [
   {
-    id: '45313',
-    brand: 'Audi',
-    model: 'Q3 Sportback',
-    variant: '45 TFSI e S-Line',
-    price: 48990,
-    color: 'Grijs',
-    year: 2021,
-    kilometers: 48000,
-    image: 'https://vanbruggenautomotive.nl/wp-content/uploads/2025/04/44138040-0.jpg',
-    includingVAT: true
-  },
-  {
-    id: '45439',
-    brand: 'Audi',
-    model: 'Q3 Sportback',
-    variant: '45 TFSI e S-Line',
-    price: 48990,
-    color: 'Zwart',
-    year: 2021,
-    kilometers: 41000,
-    image: 'https://vanbruggenautomotive.nl/wp-content/uploads/2025/04/44142013-0.jpg',
-    includingVAT: false
-  },
-  {
-    id: '45103',
-    brand: 'Audi',
-    model: 'Q3 Sportback',
-    variant: '45 TFSI e S-Line',
-    price: 42990,
-    color: 'Blauw',
-    year: 2022,
-    kilometers: 52000,
-    image: 'https://vanbruggenautomotive.nl/wp-content/uploads/2025/05/44020984-0.jpg',
-    includingVAT: true
-  },
-  {
-    id: '51449',
+    id: 'audi-q2-35-tfsi-s-line-4',
     brand: 'Audi',
     model: 'Q2',
     variant: '35 TFSI S-Line',
     price: 31990,
-    color: 'Grijs',
-    year: 2020,
     kilometers: 55000,
-    image: 'https://vanbruggenautomotive.nl/wp-content/uploads/2025/05/44674240-0.jpg',
-    includingVAT: false
+    year: 2020,
+    color: 'Grijs',
+    includingVAT: false,
+    isPromo: true,
+    image: 'https://ext.same-assets.com/2181762223/2581911691.jpeg',
   },
   {
-    id: '47928',
+    id: 'audi-a3-sportback-45-tfsi-e-s-line-6',
+    brand: 'Audi',
+    model: 'A3',
+    variant: 'Sportback 45 TFSI E S-Line',
+    price: 39990,
+    kilometers: 32000,
+    year: 2022,
+    color: 'Grijs',
+    includingVAT: true,
+    isPromo: false,
+    image: 'https://ext.same-assets.com/2181762223/14744376.jpeg',
+  },
+  {
+    id: 'audi-q8-60-tfsi-e-quattro-s-line',
+    brand: 'Audi',
+    model: 'Q8',
+    variant: '60 TFSI E Quattro S-Line',
+    price: 89990,
+    kilometers: 65000,
+    year: 2021,
+    color: 'Zwart',
+    includingVAT: true,
+    isPromo: true,
+    image: 'https://ext.same-assets.com/2181762223/2644181784.jpeg',
+  },
+  {
+    id: 'audi-q3-sportback-45-tfsi-e-s-line-8',
+    brand: 'Audi',
+    model: 'Q3 Sportback',
+    variant: '45 TFSI e S-Line',
+    price: 48990,
+    kilometers: 31000,
+    year: 2022,
+    color: 'Blauw',
+    includingVAT: true,
+    isPromo: false,
+    image: 'https://ext.same-assets.com/2181762223/1411991356.jpeg',
+  },
+  {
+    id: 'audi-a3-sportback-30-tfsi-3x-s-line',
     brand: 'Audi',
     model: 'A3',
     variant: 'Sportback 30 TFSI 3x S-Line',
-    price: 22990,
-    color: 'Grijs',
-    year: 2019,
+    price: 23990,
     kilometers: 113000,
-    image: 'https://vanbruggenautomotive.nl/wp-content/uploads/2025/05/44324878-0.jpg',
-    includingVAT: true
+    year: 2019,
+    color: 'Grijs',
+    includingVAT: true,
+    isPromo: false,
+    image: 'https://ext.same-assets.com/2181762223/2369327271.jpeg',
   },
 ];
 
 export default function RelatedCars() {
-  return (
-    <Carousel
-      opts={{
-        align: 'start',
-        loop: true,
-      }}
-      className="w-full"
-    >
-      <CarouselContent className="-ml-4">
-        {relatedCars.map((car) => (
-          <CarouselItem key={car.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-            <Link 
-              href={`/aanbod/${car.id}`}
-              className="block bg-white shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden rounded"
-            >
-              <div className="relative h-60 overflow-hidden">
-                <Image
-                  src={car.image}
-                  alt={`${car.brand} ${car.model} ${car.variant}`}
-                  fill
-                  className="object-cover hover:scale-105 transition-all duration-300"
-                />
-              </div>
-              <div className="p-4">
-                <div className="mb-2">
-                  <h3 className="text-lg font-medium text-dark">{car.brand}</h3>
-                  <h4 className="text-base font-medium text-dark">{car.model}</h4>
-                  <p className="text-dark/80 text-sm">{car.variant}</p>
-                </div>
-                <div className="flex justify-between items-center">
-                  <div className="text-gold text-lg font-bold">
-                    {new Intl.NumberFormat('nl-NL', {
-                      style: 'currency',
-                      currency: 'EUR',
-                      maximumFractionDigits: 0
-                    }).format(car.price)}
-                  </div>
-                  <div className="text-dark/60 text-sm">
-                    {car.includingVAT ? 'incl. BTW' : 'Marge'}
-                  </div>
-                </div>
+  // Using simple variables instead of state where possible
+  const apiRef = React.useRef(null);
+  const [canScrollPrev, setCanScrollPrev] = React.useState(false);
+  const [canScrollNext, setCanScrollNext] = React.useState(false);
 
-                <div className="mt-4 grid grid-cols-3 gap-2 text-sm">
-                  <div className="flex flex-col">
-                    <span className="text-dark/60">KM Stand</span>
-                    <span className="font-medium text-gold">
-                      {new Intl.NumberFormat('nl-NL').format(car.kilometers)}
-                    </span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-dark/60">Bouwjaar</span>
-                    <span className="font-medium text-gold">{car.year}</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-dark/60">Kleur</span>
-                    <span className="font-medium text-gold">{car.color}</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious 
-        className="absolute -left-4 top-1/2 h-8 w-8 border-gold text-gold bg-white hover:bg-gold hover:text-white"
-      />
-      <CarouselNext 
-        className="absolute -right-4 top-1/2 h-8 w-8 border-gold text-gold bg-white hover:bg-gold hover:text-white"
-      />
-    </Carousel>
+  function updateButtonStates() {
+    if (!apiRef.current) return;
+
+    // @ts-ignore - ignore TypeScript errors since we know this works
+    setCanScrollPrev(apiRef.current.canScrollPrev());
+    // @ts-ignore
+    setCanScrollNext(apiRef.current.canScrollNext());
+  }
+
+  // Handle API setup
+  const handleApiChange = (api: any) => {
+    if (!api) return;
+
+    apiRef.current = api;
+
+    // @ts-ignore - we know the API has these methods even if TypeScript doesn't
+    api.on('select', updateButtonStates);
+    updateButtonStates();
+  };
+
+  return (
+    <div className="relative">
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        // @ts-ignore - TypeScript will complain but we know it works
+        setApi={handleApiChange}
+        className="w-full"
+      >
+        <CarouselContent className="-ml-4">
+          {relatedCars.map((car) => (
+            <CarouselItem key={car.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <CarCard
+                  id={car.id}
+                  brand={car.brand}
+                  model={car.model}
+                  variant={car.variant}
+                  price={car.price}
+                  image={car.image}
+                  kilometers={car.kilometers}
+                  year={car.year}
+                  color={car.color}
+                  includingVAT={car.includingVAT}
+                  isPromo={car.isPromo}
+                />
+              </motion.div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+
+      {/* Custom navigation buttons */}
+      <button
+        // @ts-ignore - TypeScript will complain but we know it works
+        onClick={() => apiRef.current?.scrollPrev()}
+        disabled={!canScrollPrev}
+        className="absolute -left-4 sm:-left-6 md:-left-8 lg:-left-16 top-1/2 -translate-y-1/2 bg-transparent hover:bg-transparent text-[#BEAA8A] hover:text-[#D6C6A6] border-0 shadow-none text-[1.675rem] md:text-[2.175rem] lg:text-[2.675rem] font-extrabold cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed z-10"
+        aria-label="Previous slide"
+        type="button"
+      >
+        ❮
+      </button>
+
+      <button
+        // @ts-ignore - TypeScript will complain but we know it works
+        onClick={() => apiRef.current?.scrollNext()}
+        disabled={!canScrollNext}
+        className="absolute -right-4 sm:-right-6 md:-right-8 lg:-right-16 top-1/2 -translate-y-1/2 bg-transparent hover:bg-transparent text-[#BEAA8A] hover:text-[#D6C6A6] border-0 shadow-none text-[1.675rem] md:text-[2.175rem] lg:text-[2.675rem] font-extrabold cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed z-10"
+        aria-label="Next slide"
+        type="button"
+      >
+        ❯
+      </button>
+    </div>
   );
 }
