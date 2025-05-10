@@ -27,10 +27,11 @@ export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  
+
   // Check if current page is a car detail page or contact page
-  const isCarDetailPage = pathname.includes('/aanbod/') && pathname !== '/aanbod';
-  const isContactPage = pathname === '/contact';
+  const isCarDetailPage =
+    pathname.includes("/aanbod/") && pathname !== "/aanbod";
+  const isContactPage = pathname === "/contact";
   const hideTopBar = isCarDetailPage || isContactPage;
 
   useEffect(() => {
@@ -106,18 +107,16 @@ export const Header = () => {
         }}
       >
         <div className="container-custom flex justify-between items-center">
-        <Link href="/" className="relative w-36 sm:w-40 md:w-48">
-          <Image
-            src="/images/auto-boomgaard_logo_wit.png"
-            alt="Auto Boomgaard"
-            width={250}
-            height={180}
-            className="object-contain h-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
-            priority
-          />
-        </Link>
-
-
+          <Link href="/" className="relative w-36 sm:w-40 md:w-48">
+            <Image
+              src="/images/logo-wit.png"
+              alt="Auto Boomgaard"
+              width={250}
+              height={180}
+              className="object-contain h-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
+              priority
+            />
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center lg:ml-10">
@@ -130,7 +129,9 @@ export const Header = () => {
                   >
                     {item.name}
                     <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
-                    {(pathname === item.href || (item.href === '/aanbod' && pathname.includes('/aanbod/'))) && (
+                    {(pathname === item.href ||
+                      (item.href === "/aanbod" &&
+                        pathname.includes("/aanbod/"))) && (
                       <span className="absolute left-0 bottom-0 h-0.5 w-full bg-white"></span>
                     )}
                   </Link>
@@ -173,7 +174,7 @@ export const Header = () => {
                   <div className="flex justify-between items-center mb-8">
                     <Link href="/" className="relative w-32">
                       <Image
-                        src="images/auto-boomgaard_logo_wit.png"
+                        src="images/logo-wit.png"
                         alt="Auto Boomgaard"
                         width={150}
                         height={60}
@@ -188,11 +189,17 @@ export const Header = () => {
                         key={item.name}
                         href={item.href}
                         className={`py-2 border-b border-gray-200 hover:text-[#BEAA8A] transition-smooth relative group ${
-                          pathname === item.href || (item.href === '/aanbod' && pathname.includes('/aanbod/')) ? "font-semibold" : ""
+                          pathname === item.href ||
+                          (item.href === "/aanbod" &&
+                            pathname.includes("/aanbod/"))
+                            ? "font-semibold"
+                            : ""
                         }`}
                       >
                         {item.name}
-                        {(pathname === item.href || (item.href === '/aanbod' && pathname.includes('/aanbod/'))) && (
+                        {(pathname === item.href ||
+                          (item.href === "/aanbod" &&
+                            pathname.includes("/aanbod/"))) && (
                           <span className="absolute left-0 bottom-0 h-0.5 w-full bg-[#BEAA8A]"></span>
                         )}
                       </Link>
