@@ -25,7 +25,7 @@ export const HeroSection = ({
     "/images/a-rs3.JPG",
     "/images/rr-velar.JPG",
   ];
-  
+
   return (
     <section
       className={cn(
@@ -34,8 +34,8 @@ export const HeroSection = ({
       )}
     >
       {/* Background Carousel */}
-      <BackgroundCarousel 
-        images={carouselImages} 
+      <BackgroundCarousel
+        images={carouselImages}
         interval={4000} // 7 seconds between transitions
         transition={1.6} // 1.6 second fade transition
       />
@@ -83,14 +83,14 @@ export const HeroSection = ({
       </div>
 
       {/* Trustpilot rating */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-10 left-0 right-0 flex justify-center z-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <div className="bg-white/10 backdrop-blur-sm py-2 px-4 rounded-full flex items-center text-white shadow-lg">
-          <div className="flex mr-2">
+        <div className="bg-white/10 backdrop-blur-sm py-2 mb-4 px-4 rounded-full flex flex-col sm:flex-row items-center text-white shadow-lg">
+          <div className="flex items-center mb-1 sm:mb-0 sm:mr-2">
             {[1, 2, 3, 4, 5].map((star) => (
               <svg
                 key={`hero-star-${star}`}
@@ -102,8 +102,11 @@ export const HeroSection = ({
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
             ))}
+            <span className="ml-1 text-sm font-medium">4.5/5</span>
           </div>
-          <span className="text-sm">4.5/5 op basis van 248 reviews</span>
+          <span className="text-sm text-center sm:text-left">
+            op basis van 248 reviews
+          </span>
         </div>
       </motion.div>
     </section>
