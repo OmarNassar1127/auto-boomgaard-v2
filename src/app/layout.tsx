@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "https://ext.same-assets.com/3632404423/2187716925.png",
+        url: "/images/logo-wit.png",
         type: "image/png",
       },
     ],

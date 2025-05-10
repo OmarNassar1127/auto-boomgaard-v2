@@ -93,7 +93,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
-        'hero-pattern': "url('https://ext.same-assets.com/3632404423/2581911691.jpeg')",
+        'hero-pattern': "url('/images/rr-velar.JPG')", //ToDo:: check where this is used for 
       },
     },
   },

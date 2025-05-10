@@ -26,7 +26,7 @@ export const CTASection = ({
   title,
   subtitle,
   description,
-  backgroundImage = 'https://ext.same-assets.com/611734785/2812278651.jpeg',
+  backgroundImage = '/images/cta/cta.jpeg',
   buttons = [],
   className,
   textColor = 'text-white',

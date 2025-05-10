@@ -10,7 +10,7 @@ interface PageHeroProps {
 export const PageHero = ({
   title,
   subtitle,
-  backgroundImage = 'https://ext.same-assets.com/3632404423/2581911691.jpeg',
+  backgroundImage = '/images/rr-velar.JPG',
   className,
 }: PageHeroProps) => {
   return (

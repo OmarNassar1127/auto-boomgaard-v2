@@ -136,7 +136,6 @@ export default function AanbodPage() {
         title="Aanbod"
         subtitle="Ontdek onze exclusieve modellen"
         backgroundImage="/images/car-headlight-people-observing-automobiles-showroom.jpg"
-        // backgroundImage="https://ext.same-assets.com/2181762223/3585094715.jpeg"
       />
 
       <section className="py-16 md:py-24">
