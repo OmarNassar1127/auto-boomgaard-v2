@@ -106,17 +106,18 @@ export const Header = () => {
         }}
       >
         <div className="container-custom flex justify-between items-center">
-          <Link href="/" className="relative w-28 sm:w-32 md:w-40">
-            <Image
-              src="https://ext.same-assets.com/3632404423/2187716925.png"
-              alt="Auto Boomgaard"
-              width={200}
-              height={80}
-              className="object-contain h-auto"
-              style={{ width: "auto", maxWidth: "100%" }}
-              priority
-            />
-          </Link>
+        <Link href="/" className="relative w-36 sm:w-40 md:w-48">
+          <Image
+            src="/images/auto-boomgaard_logo_wit.png"
+            alt="Auto Boomgaard"
+            width={250}
+            height={180}
+            className="object-contain h-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
+            priority
+          />
+        </Link>
+
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center lg:ml-10">
@@ -172,7 +173,7 @@ export const Header = () => {
                   <div className="flex justify-between items-center mb-8">
                     <Link href="/" className="relative w-32">
                       <Image
-                        src="https://ext.same-assets.com/3632404423/2187716925.png"
+                        src="images/auto-boomgaard_logo_wit.png"
                         alt="Auto Boomgaard"
                         width={150}
                         height={60}

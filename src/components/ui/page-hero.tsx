@@ -16,7 +16,7 @@ export const PageHero = ({
   return (
     <div
       className={cn(
-        'relative flex items-center justify-center h-[50vh] min-h-[300px] text-white',
+        'relative flex items-center justify-center h-[35vh] min-h-[200px] text-white',
         className
       )}
       style={{
