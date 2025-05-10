@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Car } from './car-detail-page';
 
@@ -11,11 +11,70 @@ type CarDetailTabsProps = {
 };
 
 export default function CarDetailTabs({ car, activeTab, setActiveTab }: CarDetailTabsProps) {
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
+
+  // Keep track of previous active tab to determine scroll direction
+  const [previousTab, setPreviousTab] = useState<string>(activeTab);
+  
+  // Update previous tab when active tab changes
+  useEffect(() => {
+    setPreviousTab(activeTab);
+  }, [activeTab]);
+
+  // Get index of tab in navigation order
+  const getTabIndex = (tabId: string): number => {
+    const tabOrder = ['specificaties', 'highlights', 'opties', 'financiering'];
+    return tabOrder.indexOf(tabId);
+  };
+
+  // Scroll to the active tab when it changes
+  useEffect(() => {
+    if (tabsContainerRef.current) {
+      const container = tabsContainerRef.current;
+      const activeTabElement = container.querySelector(`[data-tab="${activeTab}"]`) as HTMLElement;
+      
+      if (activeTabElement) {
+        // Get the current scroll position
+        const currentScrollLeft = container.scrollLeft;
+        // Get the left position of the active tab
+        const tabLeft = activeTabElement.offsetLeft;
+        const tabWidth = activeTabElement.offsetWidth;
+        const containerWidth = container.offsetWidth;
+        
+        // Determine scroll direction based on tab indices
+        const currentTabIndex = getTabIndex(activeTab);
+        const previousTabIndex = getTabIndex(previousTab);
+        const isScrollingRight = currentTabIndex > previousTabIndex;
+        
+        let scrollPosition;
+        
+        // When scrolling right (forward), position tab at left edge
+        if (isScrollingRight) {
+          scrollPosition = tabLeft - 8; // Small padding
+        } 
+        // When scrolling left (backward), position tab at right edge
+        else {
+          // Calculate position to place tab at right edge
+          scrollPosition = (tabLeft + tabWidth) - containerWidth + 8; // Small padding
+          
+          // Make sure we don't scroll past the beginning
+          scrollPosition = Math.max(0, scrollPosition);
+        }
+        
+        // Smooth scroll to the position
+        container.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [activeTab, previousTab]);
+
   return (
     <div className="bg-white">
       {/* Tabs */}
       <div className="">
-        <div className="flex overflow-x-auto w-full gap-2">
+        <div ref={tabsContainerRef} className="flex overflow-x-auto scrollbar-hide w-full gap-2 pb-4">
           <TabButton 
             label="Specificaties" 
             active={activeTab === 'specificaties'} 
@@ -40,7 +99,7 @@ export default function CarDetailTabs({ car, activeTab, setActiveTab }: CarDetai
       </div>
 
       {/* Tab Content */}
-      <div className="p-0 md:p-4 min-h-[400px]">
+      <div className="p-0 md:p-4 mt-2 md:mt-0 min-h-[400px]">
         {activeTab === 'specificaties' && <SpecificationsTab car={car} />}
         {activeTab === 'highlights' && <HighlightsTab car={car} />}
         {activeTab === 'opties' && <OptionsTab car={car} />}
@@ -51,9 +110,20 @@ export default function CarDetailTabs({ car, activeTab, setActiveTab }: CarDetai
 }
 
 function TabButton({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
+  // Map the label to its corresponding tab ID
+  let tabId = '';
+  switch(label) {
+    case 'Specificaties': tabId = 'specificaties'; break;
+    case 'Highlights': tabId = 'highlights'; break;
+    case 'Opties & Accessoires': tabId = 'opties'; break;
+    case 'Financiering': tabId = 'financiering'; break;
+    default: tabId = label.toLowerCase().replace(/\s+&\s+|\s+/g, '-');
+  }
+  
   return (
     <button
       onClick={onClick}
+      data-tab={tabId}
       className={cn(
         "py-3 px-6 text-sm md:text-base transition-colors whitespace-nowrap flex-1 text-center",
         active 

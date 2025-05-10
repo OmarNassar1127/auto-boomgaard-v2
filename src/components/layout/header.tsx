@@ -174,7 +174,7 @@ export const Header = () => {
                   <div className="flex justify-between items-center mb-8">
                     <Link href="/" className="relative w-32">
                       <Image
-                        src="images/logo-wit.png"
+                        src="/images/logo-wit.png"
                         alt="Auto Boomgaard"
                         width={150}
                         height={60}

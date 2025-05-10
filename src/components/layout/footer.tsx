@@ -30,7 +30,7 @@ export const Footer = () => {
           <div className="space-y-6">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="images/logo-zwart.png"
+                src="/images/logo-zwart.png"
                 alt="Auto Boomgaard"
                 width={300}
                 height={138}

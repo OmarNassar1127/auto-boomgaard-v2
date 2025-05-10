@@ -108,4 +108,14 @@
   .font-inter {
     font-family: 'Inter', sans-serif;
   }
+  
+  /* Hide scrollbar but maintain functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer and Edge */
+    scrollbar-width: none;      /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;              /* Chrome, Safari and Opera */
+  }
 }
