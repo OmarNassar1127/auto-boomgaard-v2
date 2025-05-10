@@ -24,7 +24,7 @@ export const ServiceCard = ({
   return (
     <div
       className={cn(
-        'bg-white shadow-md rounded overflow-hidden group',
+        'bg-white shadow-md rounded-lg overflow-hidden group transition-standard hover:shadow-xl',
         orientation === 'horizontal'
           ? 'flex flex-col md:flex-row'
           : 'flex flex-col',
@@ -45,25 +45,26 @@ export const ServiceCard = ({
           fill
           className="object-cover group-hover:scale-105 transition-standard"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-50 transition-standard group-hover:opacity-40"></div>
       </div>
       <div
         className={cn(
-          'flex flex-col justify-between p-6',
+          'flex flex-col p-6 h-full',
           orientation === 'horizontal'
             ? 'md:w-1/2 lg:w-7/12'
             : 'flex-grow'
         )}
       >
-        <div>
+        <div className="flex-grow">
           <h3 className="text-xl md:text-2xl font-semibold text-dark-dark mb-3">{title}</h3>
-          <p className="text-dark-dark/80 mb-6">{description}</p>
+          <p className="text-dark-dark/80 line-clamp-5">{description}</p>
         </div>
         <Link
           href={href}
-          className="inline-flex items-center text-gold font-medium hover:text-gold-dark transition-standard mt-auto self-start"
+          className="inline-flex items-center text-gold font-medium hover:text-gold-dark transition-standard mt-4 self-start group"
         >
           <span>Contact opnemen</span>
-          <FaChevronRight className="ml-1 text-xs" />
+          <FaChevronRight className="ml-1 text-xs group-hover:translate-x-1 transition-standard" />
         </Link>
       </div>
     </div>
