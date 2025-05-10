@@ -181,12 +181,21 @@ export default function CarDetailPage({ car }: CarDetailProps) {
       </div>
       
       {/* Related Cars */}
-      <div className="bg-white py-12">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-2xl font-bold mb-2">
-            Bekijk ook onze andere modellen
-          </h2>
-          <div className="w-24 h-1 bg-gold mb-8"></div>
+      <div className="py-16 md:py-24 bg-white">
+        <div className="container-custom">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
+            <div>
+              <h3 className="text-gold text-sm md:text-base font-medium uppercase mb-1">Bekijk ook</h3>
+              <h2 className="text-2xl md:text-3xl font-bold text-dark">Gerelateerde auto's</h2>
+            </div>
+            <Link
+              href="/aanbod"
+              className="inline-flex items-center text-gold hover:text-gold-dark transition-standard mt-2 md:mt-0"
+            >
+              <span className="mr-2">Bekijk volledig aanbod</span>
+              <span>→</span>
+            </Link>
+          </div>
           <RelatedCars />
         </div>
       </div>

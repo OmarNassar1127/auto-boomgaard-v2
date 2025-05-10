@@ -55,15 +55,16 @@ export default function DienstenPage() {
 
       <section className="py-16 md:py-24">
         <div className="container-custom">
-          <div className="flex flex-col space-y-16 md:space-y-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 max-w-[1500px] mx-auto">
             {services.map((service, index) => (
-              <div key={service.id}>
+              <div key={service.id} className="flex h-full">
                 <ServiceCard
                   title={service.title}
                   description={service.description}
                   image={service.image}
                   href={`/contact?service=${service.id}`}
-                  orientation={(index % 2 === 0) ? 'horizontal' : 'horizontal'}
+                  orientation="horizontal"
+                  className="w-full"
                 />
               </div>
             ))}
