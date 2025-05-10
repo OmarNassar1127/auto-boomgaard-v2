@@ -24,6 +24,7 @@ const navigation = [
 ];
 
 export const Header = () => {
+  // Initialize scrolled state to false (will be updated in useEffect)
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -35,6 +36,12 @@ export const Header = () => {
   const hideTopBar = isCarDetailPage || isContactPage;
 
   useEffect(() => {
+    // Check initial scroll position when component mounts
+    const initialScrollCheck = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled(isScrolled);
+    };
+    
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
       // Add a small debounce effect for smoother transitions
@@ -44,7 +51,13 @@ export const Header = () => {
         }, 10);
       }
     };
+    
+    // Run initial check immediately
+    initialScrollCheck();
+    
+    // Add scroll event listener
     window.addEventListener("scroll", handleScroll, { passive: true });
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
