@@ -24,13 +24,13 @@ export const Footer = () => {
   return (
     <footer className="bg-white">
       {/* Main footer content */}
-      <div className="container-custom py-16">
+      <div className="container-custom py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16">
           {/* Column 1: Logo and contact info section */}
           <div className="space-y-6">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="https://vanbruggenautomotive.nl/wp-content/uploads/2024/11/Logo-ZwartGoud-e1731420381483-1024x472.png"
+                src="images/auto-boomgaard_logo_zwart.png"
                 alt="Auto Boomgaard"
                 width={300}
                 height={138}
