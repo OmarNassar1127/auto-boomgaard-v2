@@ -90,7 +90,8 @@ export const TestimonialsSection = () => {
             setApi={handleApiChange}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-4 h-auto items-stretch pb-4">
+
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
                   <motion.div
@@ -103,8 +104,8 @@ export const TestimonialsSection = () => {
                       content={testimonial.content}
                       author={testimonial.author}
                       rating={testimonial.rating}
-                      className="h-full"
-                    />
+                      className="flex flex-col justify-between h-full min-h-[340px] bg-white p-6 pb-8 rounded-xl shadow-md"
+                      />
                   </motion.div>
                 </CarouselItem>
               ))}
