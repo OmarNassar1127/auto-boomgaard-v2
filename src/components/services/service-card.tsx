@@ -24,19 +24,19 @@ export const ServiceCard = ({
   return (
     <div
       className={cn(
-        'bg-white shadow-md rounded-lg overflow-hidden group transition-standard hover:shadow-xl',
+        'bg-white shadow-md rounded-lg overflow-hidden group transition-standard hover:shadow-xl flex flex-col h-full',
         orientation === 'horizontal'
-          ? 'flex flex-col md:flex-row'
-          : 'flex flex-col',
+          ? 'md:flex-row'
+          : '',
         className
       )}
     >
       <div
         className={cn(
-          'relative overflow-hidden',
+          'relative overflow-hidden shrink-0',
           orientation === 'horizontal'
-            ? 'h-64 md:h-auto md:w-1/2 lg:w-5/12'
-            : 'h-64'
+            ? 'h-72 md:h-auto md:w-1/2 lg:w-5/12'
+            : 'h-72'
         )}
       >
         <Image
@@ -49,22 +49,22 @@ export const ServiceCard = ({
       </div>
       <div
         className={cn(
-          'flex flex-col p-6 h-full',
+          'flex flex-col p-7 md:p-8 flex-grow justify-between',
           orientation === 'horizontal'
             ? 'md:w-1/2 lg:w-7/12'
-            : 'flex-grow'
+            : ''
         )}
       >
-        <div className="flex-grow">
-          <h3 className="text-xl md:text-2xl font-semibold text-dark-dark mb-3">{title}</h3>
-          <p className="text-dark-dark/80 line-clamp-5">{description}</p>
+        <div>
+          <h3 className="text-2xl md:text-3xl font-semibold text-dark-dark mb-4">{title}</h3>
+          <p className="text-dark-dark/80 line-clamp-5 text-base md:text-lg">{description}</p>
         </div>
         <Link
           href={href}
-          className="inline-flex items-center text-gold font-medium hover:text-gold-dark transition-standard mt-4 self-start group"
+          className="inline-flex items-center text-gold font-medium hover:text-gold-dark transition-standard mt-5 self-start group text-base md:text-lg"
         >
           <span>Contact opnemen</span>
-          <FaChevronRight className="ml-1 text-xs group-hover:translate-x-1 transition-standard" />
+          <FaChevronRight className="ml-2 text-sm group-hover:translate-x-1 transition-standard" />
         </Link>
       </div>
     </div>
