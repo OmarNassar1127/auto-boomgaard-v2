@@ -49,7 +49,7 @@ export const HeroSection = ({
           className="max-w-4xl mx-auto"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Dé Audi specialist van Nederland
+            De Audi specialist van Nederland
           </h1>
 
           <div className="flex flex-col md:flex-row justify-center gap-4 mt-8 w-full px-4 md:px-0">
